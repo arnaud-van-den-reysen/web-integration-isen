@@ -8,10 +8,6 @@ if (isset($_GET['logout'])) {
     header("location: index.php");
 }
 
-echo $_SESSION['username'];
-echo $_SESSION['admin'];
-echo $_SESSION['doctor'];
-
 
 ?>
 <!doctype html>

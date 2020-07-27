@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 // initializing variables
 $username = "";
 $mail    = "";
@@ -73,7 +74,6 @@ if (isset($_POST['login_user'])) {
         $row = mysqli_fetch_assoc($wtf);
         if ($username == $row["username"] && $passwordD ==$row["password"]) {
             $_SESSION['username'] = $username;
-            $_SESSION['success'] = "You are now logged in";
             if($row["isAdmin"]=="1") {
                 $_SESSION['admin'] == 1;
             } else {
@@ -84,6 +84,7 @@ if (isset($_POST['login_user'])) {
             }else {
                 $_SESSION['doctor'] == 0;
             }
+            $_SESSION['success'] = "You are now logged in";
             header('location: index.php');
         }else {
             array_push($errors, "Wrong username/password combination");
