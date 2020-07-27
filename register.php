@@ -45,7 +45,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
                     </div>
-                    <input class="form-control" placeholder="Email address" type="email" name="email" value="<?php echo $email; ?>">
+                    <input class="form-control" placeholder="Email address" type="mail" name="mail" value="<?php echo $mail; ?>">
                 </div>
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
