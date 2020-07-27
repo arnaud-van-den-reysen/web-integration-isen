@@ -74,6 +74,16 @@ if (isset($_POST['login_user'])) {
         if ($username == $row["username"] && $passwordD ==$row["password"]) {
             $_SESSION['username'] = $username;
             $_SESSION['success'] = "You are now logged in";
+            if($row["isAdmin"]=="1") {
+                $_SESSION['admin'] == 1;
+            } else {
+                $_SESSION['admin'] == 0;
+            }
+            if($row["isDoctor"]=="1") {
+                $_SESSION['doctor'] == 1;
+            }else {
+                $_SESSION['doctor'] == 0;
+            }
             header('location: index.php');
         }else {
             array_push($errors, "Wrong username/password combination");

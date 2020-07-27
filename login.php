@@ -50,7 +50,6 @@ include('errors.php');
             <button type="submit" class="btn btn-lg btn-primary btn-block mb-5" name="login_user">Login</button>
             <p><a class="p-2" href="#">Forgot password</a> ?</p>
             <p>Not registered yet ?<a class="p-2" href="register.php">Create an account now</a> !</p>
-            <p>You are a doctor ?<a class="p-2" href="doctorIndex.php">Access to your account</a> !</p>
         </form>
     </main>
 
