@@ -2,8 +2,7 @@
 <div id="divid" style="width:899px; height:868px; background-image:url('img.jpg');"></div>
 <br/><br/> Click on the first red circle then follow the path to click on the last red circle.<br/>
 <form action="../CreaFichierSouris.php?username=<?php echo $_GET['username'];?>" method="post" id="envoiPHP" TARGET=_BLANK>
-  <input style="visibility: hidden;" type="text" class="input1" id="contFichier" name="contFichier"
-       size=9999>
+  <input style="visibility: hidden;" type="text" class="input1" id="contFichier" name="contFichier">
 
 </form>
 
@@ -56,7 +55,9 @@ function getCoords(e) {
   y = y - xy_pos['yp'];
 
   var f = new Date();
-  document.getElementById('coords').innerHTML = 'X= '+ x+ ' ,Y= '+ y+',T= '+ (f.getTime() - d.getTime())+';';
+  window.onload = function() {
+    document.getElementById('coords').innerHTML = 'X= '+ x+ ' ,Y= '+ y+',T= '+ (f.getTime() - d.getTime())+';';
+  }
   if (flag>0){
     document.getElementById('contFichier').value += x+ ' , ' +y+',T= '+ (f.getTime() - d.getTime())+';';
   }
