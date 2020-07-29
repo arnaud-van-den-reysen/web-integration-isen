@@ -48,11 +48,9 @@ and open the template in the editor.
 <div class="container text-center">
     <h1 class="my-5">Symptoms analysis</h1>
 
-    <label>
-        <input type="checkbox" name="acceptConditions1" >
-    </label> I understand and accept that the results given
-    don't replace a real medical diagnostic<br>
-    <input type="checkbox" name="acceptConditions2" > I accept the processing and hosting of my health data<br>
+
+    <input type="checkbox" name="acceptConditions1"> I understand and accept that the results given don't replace a real medical diagnostic<br>
+    <input type="checkbox" name="acceptConditions2"> I accept the processing and hosting of my health data<br>
 
     <h5 class="mt-5 mb-3">Choose the most important symptom</h5>
     <form name="form_symptoms" id ="form_symptoms" action="" method="POST">
@@ -89,21 +87,18 @@ and open the template in the editor.
         </fieldset>
 
 
-<p id="demo"></p>
+        <p id="demo"></p>
 
-<ul id="myList" name="contFichier">
-  <li>x/y</li>
-</ul>
-
+        <ul id="myList" name="contFichier">
+        <li>x/y</li>
+        </ul>
 
         <input onclick="clearCoor()" type="button" class="btn btn-primary" id="btn_symptom_1" name="sub_send_1" value="Confirm">
 
     </form>
 <form action="CreaFichier.php?username=<?php echo $_GET['username']; ?>" method="post" id="envoiPHP" TARGET=_BLANK>
-  <input type="text" class="input1" id="contFichier" name="contFichier"
-       size=9999>
-			 <input style="visibility: hidden;" type="text" class="input1" id="contFichier2" name="contFichier2"
-		        size=9999>
+<input type="text" class="input1" id="contFichier" name="contFichier">
+<input style="visibility: hidden;" type="text" class="input1" id="contFichier2" name="contFichier2">
 </form>
 </div>
     </main>
