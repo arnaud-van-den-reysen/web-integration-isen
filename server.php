@@ -74,16 +74,8 @@ if (isset($_POST['login_user'])) {
         $row = mysqli_fetch_assoc($wtf);
         if ($username == $row["username"] && $passwordD ==$row["password"]) {
             $_SESSION['username'] = $username;
-            if($row["isAdmin"]=="1") {
-                $_SESSION['admin'] == 1;
-            } else {
-                $_SESSION['admin'] == 0;
-            }
-            if($row["isDoctor"]=="1") {
-                $_SESSION['doctor'] == 1;
-            }else {
-                $_SESSION['doctor'] == 0;
-            }
+            $_SESSION['admin']=$row["isAdmin"];
+            $_SESSION['doctor']=$row["isDoctor"];
             $_SESSION['success'] = "You are now logged in";
             header('location: index.php');
         }else {
@@ -91,5 +83,4 @@ if (isset($_POST['login_user'])) {
         }
     }
 }
-
 ?>
