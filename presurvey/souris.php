@@ -38,8 +38,8 @@
             </nav>
         </div>
     </header>
-    <h6>Click on the first red circle then follow the path to click on the last red circle.</h6>
-<div id="divid" style="width:899px; height:868px; background-image:url('parcours.jpg'); border: 10px solid white"></div>
+    <h6 style="text-decoration: underline;">Click on the first red circle then follow the path to click on the last red circle.</h6>
+<div id="divid" style="width:899px; height:868px; background-image:url('parcours.jpg');"></div>
 </div>
 </body>
 <form action="../CreaFichierSouris.php?username=<?php echo $_GET['username'];?>" method="post" id="envoiPHP" TARGET=_BLANK>
