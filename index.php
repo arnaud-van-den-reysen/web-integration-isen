@@ -42,7 +42,7 @@ if (isset($_GET['logout'])) {
                 <a class="nav-link active" href="index.php">Home</a>
                 <?php  if (isset($_SESSION['username'])) : ?>
                     <a class="nav-link" href="#"><?php echo $_SESSION['username']; ?></a>
-                    <a class="nav-link" href="index.php?logout='1'">logout</a>
+                    <a class="nav-link" href="index.php?logout='1'">Logout</a>
                     <?php if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1) : ?>
                         <a class="nav-link" href=""> Admin</a>
                     <?php endif ?>
@@ -57,6 +57,7 @@ if (isset($_GET['logout'])) {
     </header>
 
     <main role="main" class="inner cover">
+    <img src="./Static/images/doctor.png">
         <?php  if (isset($_SESSION['username'])) : ?>
             <h1 class="cover-heading">Make Your Diagnosis</h1>
             <p class="lead">Aled is web and mobile application where you can make your own diagnosis. You can now make your own diagnosis using the button below</p>

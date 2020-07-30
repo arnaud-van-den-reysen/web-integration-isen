@@ -1,6 +1,47 @@
 <?phpsession_start();?>
-<div id="divid" style="width:899px; height:868px; background-image:url('img.jpg');"></div>
-<br/><br/> Click on the first red circle then follow the path to click on the last red circle.<br/>
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" type="image/png" href="Static/images/doctor.png"/>
+
+    <title>Aled</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/cover/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="../Static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../Static/css/cover.css" rel="stylesheet">
+
+</head>
+
+
+
+<body style="background-color : #333">
+<div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+    <header class="masthead mb-auto">
+        <div class="inner">
+            <h3 class="masthead-brand">Aled</h3>
+            <nav class="nav nav-masthead justify-content-center">
+                <a class="nav-link active" href="../index.php">Home</a>
+                    <?php if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1) : ?>
+                        <a class="nav-link" href=""> Admin</a>
+                    <?php endif ?>
+                    <?php if(isset($_SESSION['doctor']) && $_SESSION['doctor'] == 1) : ?>
+                        <a class="nav-link" href=""> Doctor</a>
+                    <?php endif ?>
+            </nav>
+        </div>
+    </header>
+    <h6>Click on the first red circle then follow the path to click on the last red circle.</h6>
+<div id="divid" style="width:899px; height:868px; background-image:url('parcours.jpg'); border: 10px solid white"></div>
+</div>
+</body>
 <form action="../CreaFichierSouris.php?username=<?php echo $_GET['username'];?>" method="post" id="envoiPHP" TARGET=_BLANK>
   <input style="visibility: hidden;" type="text" class="input1" id="contFichier" name="contFichier">
 </form>
