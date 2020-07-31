@@ -1,13 +1,15 @@
 <?php
 session_start();
 
+
 // initializing variables
 $username = "";
 $mail    = "";
 $errors = array();
 
 // connect to the database
-$db = mysqli_connect('localhost', 'root', '', 'web2');
+include('connect.php');
+$db = connectDb();
 
 
 // REGISTER USER

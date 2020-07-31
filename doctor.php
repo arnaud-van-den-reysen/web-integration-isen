@@ -1,16 +1,9 @@
 <?php
 session_start();
-if (isset($_GET['logout'])) {
-    session_destroy();
-    unset($_SESSION['username']);
-    unset($_SESSION['admin']);
-    unset($_SESSION['doctor']);
-    header("location: index.php");
-    
-}
-
-
+include('connect.php');
+$db = connectDb();
 ?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -57,19 +50,13 @@ if (isset($_GET['logout'])) {
     </header>
 
     <main role="main" class="inner cover">
-        <?php  if (isset($_SESSION['username'])) : ?>
-            <h1 class="cover-heading">Make Your Diagnosis</h1>
-            <p class="lead">Aled is web and mobile application where you can make your own diagnosis. You can now make your own diagnosis using the button below</p>
-            <p class="lead">
-                <a href="presurvey/NewTest.php?username=<?php echo $_SESSION['username']; ?>" class="btn btn-lg btn-secondary">Make diagnosis</a>
-            </p>
-        <?php else :?>
-            <h1 class="cover-heading">You need to register first !</h1>
-            <p class="lead">Aled is web and mobile application where you can make your own diagnosis. But first we need to know who you are ! So please, use the button below to register or login.</p>
-            <p class="lead">
-                <a href="login.php" class="btn btn-lg btn-secondary">Login now</a>
-            </p>
-        <?php endif ?>
+       <?php
+         $doctor_display = "SELECT * FROM authentication WHERE username='$username' OR mail='$mail' LIMIT 1";
+         $result = mysqli_query($db, $doctor_display);
+         $user = mysqli_fetch_assoc($result);     
+       ?>
+
+
     </main>
 
     <footer class="mastfoot mt-auto text-center">
@@ -78,14 +65,3 @@ if (isset($_GET['logout'])) {
         </div>
     </footer>
 </div>
-
-
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="Static/js/jquery.min.js"</script>
-<script>window.jQuery || document.write('<script src="Static/js/jquery.min.js"><\/script>')</script>
-<script src="Static/js/popper.min.js"></script>
-<script src="Static/js/bootstrap.min.js"></script>
-</body>
-</html>

@@ -1,6 +1,8 @@
-<?php include('doctorServer.php') ?>
-<?php include('errors.php') ?>
-<!DOCTYPE html>
+<?php
+session_start();
+?>
+
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -18,48 +20,43 @@
 
     <!-- Custom styles for this template -->
     <link href="Static/css/cover.css" rel="stylesheet">
-</head>
-<body>
-<div class="container">
-    <form method="post" action="admin.php">
-        <a href="doctorIndex.php"><img class="mt-5 mb-4 mx-auto d-block" src="Static/images/doctor.png" alt="" width="72" height="72"></a>
-        <h1 class="cover-heading text-center">Create Account</h1>
-        <p class="text-center">create a doctor account</p>
 
-        <div class="form-group input-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-            </div>
-            <input type="text" name="prenom" value="<?php echo $prenom; ?>" class="form-control" placeholder="prenom">
+</head>
+
+<body class="text-center">
+
+<div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+    <header class="masthead mb-auto">
+        <div class="inner">
+            <h3 class="masthead-brand">Aled</h3>
+            <nav class="nav nav-masthead justify-content-center">
+                <a class="nav-link active" href="index.php">Home</a>
+                <?php  if (isset($_SESSION['username'])) : ?>
+                    <a class="nav-link" href="#"><?php echo $_SESSION['username']; ?></a>
+                    <a class="nav-link" href="index.php?logout='1'">logout</a>
+                    <?php if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1) : ?>
+                        <a class="nav-link" href="admin.php"> Admin</a>
+                    <?php endif ?>
+                    <?php if(isset($_SESSION['doctor']) && $_SESSION['doctor'] == 1) : ?>
+                        <a class="nav-link" href="doctor.php"> Doctor</a>
+                    <?php endif ?>
+                <?php else :?>
+                    <a class="nav-link" href="login.php">Login</a>
+                <?php endif ?>
+            </nav>
         </div>
-        <div class="form-group input-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-            </div>
-            <input type="text" name="nom" value="<?php echo $nom; ?>" class="form-control" placeholder="nom">
+    </header>
+
+    <main role="main" class="inner cover">
+        
+
+
+        
+    </main>
+
+    <footer class="mastfoot mt-auto text-center">
+        <div class="inner">
+            <p>&copy; 2020 <a href="index.php">Aled</a>.  All rights reserved.</p>
         </div>
-        <div class="form-group input-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
-            </div>
-            <input class="form-control" placeholder="Email address" type="email" name="mail" value="<?php echo $mail; ?>">
-        </div>
-        <div class="form-group input-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-            </div>
-            <input class="form-control" placeholder="Create password" type="password" name="password_1">
-        </div>
-        <div class="form-group input-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-            </div>
-            <input class="form-control" placeholder="Repeat password" type="password" name="password_2">
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block" name="reg_doctor"> Create Account  </button>
-        </div>
-    </form>
+    </footer>
 </div>
-</body>
-</html>
