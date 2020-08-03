@@ -14,7 +14,7 @@ $db = connectDb();
     <link rel="shortcut icon" type="image/png" href="Static/images/doctor.png"/>
 
     <title>Aled</title>
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/cover/">
 
     <!-- Bootstrap core CSS -->
@@ -50,28 +50,78 @@ $db = connectDb();
     </header>
 
     <main role="main" class="inner cover">
+    <div class="container">
+    <h5>Users</h5>
+        <table class="table table-light table-striped">
+        <thead>
+          <tr>
+            <th>ID User</th>
+            <th>Username</th>
+            <th>Mail</th>
+            <th>Admnin</th>
+            <th>Doctor</th>
+        </tr>
+        </thead>
+
+        <tbody>
         <?php
         $user_display = "SELECT * FROM authentication;";
         $result = mysqli_query($db, $user_display);
+        
         while ($user = mysqli_fetch_assoc($result)) {
-            echo 'ID User : ' .  $user['id_auth'] . 'username : ' . $user['username'] . ' mail ' . $user['mail'] . ' Admin : ' . $user['isAdmin'] . ' Doctor : ' . $user['isDoctor'];
-            echo '<br>';
+            echo "<tr><td>" . $user['id_auth'] . "</td> <td>" . $user['username'] . "</td> <td>" . $user['mail'] . "</td> <td>" . $user['isAdmin'] . "</td> <td>" . $user['isDoctor'] . "</td> </tr>";
         }
-        echo '<br>';
+        ?>
+        </tbody>
+        </table>
+
+
+        <h5>Patient Medical Records</h5>
+        <table class="table table-dark table-striped">
+
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Social Security Number</th>
+            <th>User ID</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <?php
         $patient_display = "SELECT * FROM patient_medical_record INNER JOIN social_details ON patient_medical_record.id_socdet = social_details.id_socdet;";
         $result = mysqli_query($db, $patient_display);
         while ($patient = mysqli_fetch_assoc($result)) {
-            echo 'First Name : ' . $patient['firstname'] . ' last name ' . $patient['lastname'] . ' Social Secruity Number : ' . $patient['socialsecuritynumber'] . ' user ID : ' . $patient['id_auth'];
-            echo '<br>';
+            echo "<tr><td>" . $patient['firstname'] . '</td> <td>' . $patient['lastname'] . '</td> <td>' . $patient['socialsecuritynumber'] . '</td> <td>' . $patient['id_auth'] . "</td> </tr>";
         }
-        echo '<br>';
+        ?>
+        </tbody>
+        </table>
+
+        <h5>Doctors</h5>
+        <table class="table table-light table-striped">
+
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>RPPS</th>
+            <th>User IR</th>
+        </tr>
+        </thead>
+
+        <tbody>
+       <?php
         $doctor_display = "SELECT * FROM doctor INNER JOIN social_details ON doctor.id_socdet = social_details.id_socdet;";
         $result = mysqli_query($db, $doctor_display);
         while ($doctor = mysqli_fetch_assoc($result)) {
-            echo 'First name : ' . $doctor['firstname'] . ' Last name ' . $doctor['lastname'] . ' RPPS : ' . $doctor['rpps'] . ' user IR : ' . $doctor['id_auth'];
-            echo '<br>';
+            echo "<tr><td>" . $doctor['firstname'] . '</td> <td>' . $doctor['lastname'] . '</td> <td>' . $doctor['rpps'] . '</td> <td>' . $doctor['id_auth'] . "</td> </tr>";
         }
         ?>
+        </tbody>
+        </table>
+        </div>
     </main>
 
     <footer class="mastfoot mt-auto text-center">
