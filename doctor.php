@@ -32,7 +32,7 @@ $db = connectDb();
         <div class="inner">
             <h3 class="masthead-brand">Aled</h3>
             <nav class="nav nav-masthead justify-content-center">
-                <a class="nav-link active" href="index.php">Home</a>
+                <a class="nav-link" href="index.php">Home</a>
                 <?php  if (isset($_SESSION['username'])) : ?>
                     <a class="nav-link" href="#"><?php echo $_SESSION['username']; ?></a>
                     <a class="nav-link" href="index.php?logout='1'">logout</a>
@@ -40,7 +40,7 @@ $db = connectDb();
                         <a class="nav-link" href="admin.php"> Admin</a>
                     <?php endif ?>
                     <?php if(isset($_SESSION['doctor']) && $_SESSION['doctor'] == 1) : ?>
-                        <a class="nav-link" href="doctor.php"> Doctor</a>
+                        <a class="nav-link active" href="doctor.php"> Doctor</a>
                     <?php endif ?>
                 <?php else :?>
                     <a class="nav-link" href="login.php">Login</a>
@@ -51,9 +51,21 @@ $db = connectDb();
 
     <main role="main" class="inner cover">
        <?php
-         $doctor_display = "SELECT * FROM authentication WHERE username='$username' OR mail='$mail' LIMIT 1";
+        $username = $_SESSION['username'];
+         $doctor_display = "SELECT * FROM (authentication INNER JOIN doctor ON authentication.id_auth = doctor.id_auth) INNER JOIN social_details ON social_details.id_socdet = doctor.id_socdet WHERE username='$username'";
          $result = mysqli_query($db, $doctor_display);
-         $user = mysqli_fetch_assoc($result);     
+         $user = mysqli_fetch_assoc($result);
+         echo 'Id_auth :' . $user['id_auth'] . ' First name : ' . $user['firstname'] . ' Last name : ' . $user['lastname'] . ' RPPS : ' . $user['rpps'];
+         echo '<br><br><br>';
+         $id_doct = $user['id_doc'];
+         $appointment_display = "SELECT * FROM (((appointment INNER JOIN patient_medical_record ON appointment.id_medrec = patient_medical_record.id_medrec) INNER JOIN social_details ON social_details.id_socdet = patient_medical_record.id_socdet) INNER JOIN gps_coordinates ON appointment.id_gpsc = gps_coordinates.id_gpsc) INNER JOIN address ON address.id_addr = appointment.id_addr WHERE appointment.id_doc = '$id_doct'";
+         $appointment_res = mysqli_query($db, $appointment_display);
+         while ($row = mysqli_fetch_assoc($appointment_res)) {
+             echo '<br>';
+             echo 'Appointment date : ' . $row['date_appoi'] . ' Appointment Hour : ' . $row['hours_appoi'] . ' Appointment Address :'. $row['number']. ' '. $row['street']. ' '. $row['zipcode'] . ' Patient first name : ' . $row['firstname'] . ' Patient last name : ' . $row['lastname'] . ' Patient Social Security Number : ' . $row['socialsecuritynumber'];
+             echo ' GPS Coordinates  Longitude : ' . $row['longitude'] . ' Latitude : ' . $row['latitude'];
+             echo '<br><br>';
+         }
        ?>
 
 
@@ -65,3 +77,5 @@ $db = connectDb();
         </div>
     </footer>
 </div>
+</body>
+</html>

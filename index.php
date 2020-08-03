@@ -42,13 +42,13 @@ if (isset($_GET['logout'])) {
                 <a class="nav-link active" href="index.php">Home</a>
                 <?php  if (isset($_SESSION['username'])) : ?>
                     <a class="nav-link" href="#"><?php echo $_SESSION['username']; ?></a>
-                    <a class="nav-link" href="index.php?logout='1'">Logout</a>
                     <?php if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1) : ?>
                         <a class="nav-link" href="admin.php"> Admin</a>
                     <?php endif ?>
                     <?php if(isset($_SESSION['doctor']) && $_SESSION['doctor'] == 1) : ?>
                         <a class="nav-link" href="doctor.php"> Doctor</a>
                     <?php endif ?>
+                    <a class="nav-link" href="index.php?logout='1'">Logout</a>
                 <?php else :?>
                     <a class="nav-link" href="login.php">Login</a>
                 <?php endif ?>
