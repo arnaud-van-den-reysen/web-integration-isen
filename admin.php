@@ -22,6 +22,16 @@ $db = connectDb();
 
     <!-- Custom styles for this template -->
     <link href="Static/css/cover.css" rel="stylesheet">
+    <style>
+        .my-custom-scrollbar {
+        position: relative;
+        height: 200px;
+        overflow: auto;
+        }
+        .table-wrapper-scroll-y {
+        display: block;
+        }
+</style>
 
 </head>
 
@@ -52,6 +62,7 @@ $db = connectDb();
     <main role="main" class="inner cover">
     <div class="container">
     <h5>Users</h5>
+    <div class="table-wrapper-scroll-y my-custom-scrollbar">
         <table class="table table-light table-striped">
         <thead>
           <tr>
@@ -74,9 +85,10 @@ $db = connectDb();
         ?>
         </tbody>
         </table>
-
-
+        </div>
+        
         <h5>Patient Medical Records</h5>
+        <div class="table-wrapper-scroll-y my-custom-scrollbar">
         <table class="table table-dark table-striped">
 
         <thead>
@@ -98,8 +110,10 @@ $db = connectDb();
         ?>
         </tbody>
         </table>
+        </div>
 
         <h5>Doctors</h5>
+        <div class="table-wrapper-scroll-y my-custom-scrollbar">
         <table class="table table-light table-striped">
 
         <thead>
@@ -121,6 +135,7 @@ $db = connectDb();
         ?>
         </tbody>
         </table>
+        </div>
         </div>
     </main>
 
