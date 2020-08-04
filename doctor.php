@@ -42,7 +42,8 @@ $db = connectDb();
     }
     .title_doctor {
         font-size: 40px;
-        
+        text-align: left;
+        padding-left: 20px;
     }
     .container {
         display: flex;
