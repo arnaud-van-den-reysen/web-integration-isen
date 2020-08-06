@@ -69,18 +69,31 @@ $db = connectDb();
             <th>ID User</th>
             <th>Username</th>
             <th>Mail</th>
-            <th>Admnin</th>
+            <th>Admin</th>
             <th>Doctor</th>
         </tr>
         </thead>
 
         <tbody>
+            
         <?php
         $user_display = "SELECT * FROM authentication;";
         $result = mysqli_query($db, $user_display);
         
         while ($user = mysqli_fetch_assoc($result)) {
-            echo "<tr><td>" . $user['id_auth'] . "</td> <td>" . $user['username'] . "</td> <td>" . $user['mail'] . "</td> <td>" . $user['isAdmin'] . "</td> <td>" . $user['isDoctor'] . "</td> </tr>";
+            echo "<form action='adminScript.php' method='POST' name='formUser'> <tr><td><input disabled type='text' name='idAuth' value ='" . $user['id_auth'] . "'><input type='hidden' name='idAuth' value ='" . $user['id_auth'] . "'></td> <td><input type='text' name='username' value ='" . $user['username'] . "'>";
+            echo "</td> <td><input type='text' name='mail' value = '" . $user['mail'] . "'>";
+            if($user['isAdmin'] == '1') {
+                echo "</td> <td><input type='hidden' name='isAdmin' value='0'><input checked type='checkbox' name='isAdmin' value='1'>";
+            } else {
+                echo "</td> <td><input checked type='hidden' name='isAdmin' value='0'> <input type='checkbox' name='isAdmin' value='1'>";
+            }
+            if($user['isDoctor'] == '1') {
+                echo "</td> <td><input type='hidden' name='isDoctor' value='0'><input checked type='checkbox' name='isDoctor' value='1'>";
+            } else {
+                echo "</td> <td><input checked type='hidden' name='isDoctor' value='0'> <input type='checkbox' name='isDoctor' value='1'>";
+            }
+            echo "</td> <td><input type='submit' name='modifyUser'value='Modify'></td> <td><input type='submit'  name='deleteUser' value='Delete'></td> </tr></form>";
         }
         ?>
         </tbody>
@@ -105,7 +118,9 @@ $db = connectDb();
         $patient_display = "SELECT * FROM patient_medical_record INNER JOIN social_details ON patient_medical_record.id_socdet = social_details.id_socdet;";
         $result = mysqli_query($db, $patient_display);
         while ($patient = mysqli_fetch_assoc($result)) {
-            echo "<tr><td>" . $patient['firstname'] . '</td> <td>' . $patient['lastname'] . '</td> <td>' . $patient['socialsecuritynumber'] . '</td> <td>' . $patient['id_auth'] . "</td> </tr>";
+            echo "<form action='adminScript.php' method='POST' name='formPatient'> <tr><td><input type='text' name='firstname' value ='" . $patient['firstname'] . "'></td> <td><input type='text' name='lastname' value ='" . $patient['lastname'] . "'>";
+            echo "</td> <td><input type='text' name='socialsecuritynumber' value = '" . $patient['socialsecuritynumber'] . "'></td> <td><input type='text' name='id_auth' value ='" . $patient['id_auth'] . "'";
+            echo "</td> <td><input type='submit' name='modifyPatient'value='Modify'></td> <td><input type='submit'  name='deletePatient' value='Delete'></td> </tr></form>";
         }
         ?>
         </tbody>
@@ -121,7 +136,7 @@ $db = connectDb();
             <th>First Name</th>
             <th>Last Name</th>
             <th>RPPS</th>
-            <th>User IR</th>
+            <th>User ID</th>
         </tr>
         </thead>
 
@@ -130,7 +145,9 @@ $db = connectDb();
         $doctor_display = "SELECT * FROM doctor INNER JOIN social_details ON doctor.id_socdet = social_details.id_socdet;";
         $result = mysqli_query($db, $doctor_display);
         while ($doctor = mysqli_fetch_assoc($result)) {
-            echo "<tr><td>" . $doctor['firstname'] . '</td> <td>' . $doctor['lastname'] . '</td> <td>' . $doctor['rpps'] . '</td> <td>' . $doctor['id_auth'] . "</td> </tr>";
+            echo "<form action='adminScript.php' method='POST' name='formDoctor'> <tr><td><input type='text' name='firstname' value ='" . $doctor['firstname'] . "'></td> <td><input type='text' name='lastname' value ='" . $doctor['lastname'] . "'>";
+            echo "</td> <td><input type='text' name='rpps' value = '" . $doctor['rpps'] . "'></td> <td><input type='text' name='id_auth' value ='" . $doctor['id_auth'] . "'";
+            echo "</td> <td><input type='submit' name='modifyDoctor'value='Modify'></td> <td><input type='submit'  name='deleteDoctor' value='Delete'></td> </tr></form>";
         }
         ?>
         </tbody>
