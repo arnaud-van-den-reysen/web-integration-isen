@@ -31,6 +31,54 @@ and open the template in the editor.
     <link href="Static/css/cover.css" rel="stylesheet">
     <link rel="shortcut icon" type="image/png" href="Static/images/doctor.png"/>
 
+    <script>
+var listeCoor="";
+var d = new Date();
+function showCoords(event) {
+  var x = event.clientX;
+  var y = event.clientY;
+  var coor = "X coords: " + x + ", Y coords: " + y;
+  document.getElementById("demo").innerHTML = coor;
+  var maCoord = new Object();
+  maCoord.x = x;
+  maCoord.y = y;
+  return(maCoord);
+}
+
+function clearCoor() {
+  document.getElementById("demo").innerHTML = "";
+  document.getElementById("envoiPHP").submit();
+}
+
+function display(){
+    var checkBox1 = document.getElementById("acceptConditions1");
+    var checkBox2 = document.getElementById("acceptConditions2");
+    var text = document.getElementById("btn_symptom_1");
+
+    if (checkBox2.checked && checkBox1.checked== true){
+    text.style.display = "";
+  } else {
+    text.style.display = "none";
+  }
+}
+
+
+function myFunction(maCoord) {
+  var node = document.createElement("LI");
+  var textnode = document.createTextNode(maCoord.x+"/"+maCoord.y);
+  node.appendChild(textnode);
+  document.getElementById("myList").appendChild(node);
+	var f = new Date();
+	var str = maCoord.x+"/"+maCoord.y+"/"+(f.getTime() - d.getTime());
+  listeCoor = listeCoor + str + ",";
+  $(".input1").val(listeCoor);
+	document.getElementById("contFichier2").value = "symptom=" + document.getElementById("First_symptom").value;
+	document.getElementById("contFichier2").value += ",";
+}
+
+
+</script>
+
 </head>
 <body onmousemove="myFunction(showCoords(event))">
 <div class="cover-container d-flex h-100 p-3 mx-1 flex-column">
@@ -49,8 +97,8 @@ and open the template in the editor.
     <h1 class="my-5">Symptoms analysis</h1>
 
 
-    <input type="checkbox" name="acceptConditions1"> I understand and accept that the results given don't replace a real medical diagnostic<br>
-    <input type="checkbox" name="acceptConditions2"> I accept the processing and hosting of my health data<br>
+    <input onClick="display()" type="checkbox" id="acceptConditions1"> I understand and accept that the results given don't replace a real medical diagnostic<br>
+    <input onClick="display()" type="checkbox" id="acceptConditions2"> I accept the processing and hosting of my health data<br>
 
     <h5 class="mt-5 mb-3">Choose the most important symptom</h5>
     <form name="form_symptoms" id ="form_symptoms" action="" method="POST">
@@ -92,9 +140,8 @@ and open the template in the editor.
         <ul id="myList" name="contFichier">
         <li>x/y</li>
         </ul>
-
-        <input onclick="clearCoor()" type="button" class="btn btn-primary" id="btn_symptom_1" name="sub_send_1" value="Confirm">
-
+        <input onclick="clearCoor()" type="button" class="btn btn-primary" id="btn_symptom_1" name="sub_send_1" value="Confirm" style="display:none">
+      
     </form>
 <form action="CreaFichier.php?username=<?php echo $_GET['username']; ?>" method="post" id="envoiPHP" TARGET=_BLANK>
 <input type="text" class="input1" id="contFichier" name="contFichier">
@@ -110,39 +157,6 @@ and open the template in the editor.
         </div>
     </footer>
 </div>
-<script>
-var listeCoor="";
-var d = new Date();
-function showCoords(event) {
-  var x = event.clientX;
-  var y = event.clientY;
-  var coor = "X coords: " + x + ", Y coords: " + y;
-  document.getElementById("demo").innerHTML = coor;
-  var maCoord = new Object();
-  maCoord.x = x;
-  maCoord.y = y;
-  return(maCoord);
-}
 
-function clearCoor() {
-  document.getElementById("demo").innerHTML = "";
-  document.getElementById("envoiPHP").submit();
-}
-
-function myFunction(maCoord) {
-  var node = document.createElement("LI");
-  var textnode = document.createTextNode(maCoord.x+"/"+maCoord.y);
-  node.appendChild(textnode);
-  document.getElementById("myList").appendChild(node);
-	var f = new Date();
-	var str = maCoord.x+"/"+maCoord.y+"/"+(f.getTime() - d.getTime());
-  listeCoor = listeCoor + str + ",";
-  $(".input1").val(listeCoor);
-	document.getElementById("contFichier2").value = "symptom=" + document.getElementById("First_symptom").value;
-	document.getElementById("contFichier2").value += ",";
-}
-
-
-</script>
 </body>
 </html>
