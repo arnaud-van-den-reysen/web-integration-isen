@@ -58,6 +58,19 @@ $db = connectDb();
         border-color: white;
         background-image: linear-gradient(to right,#333,#000);
     }
+
+    .informations {
+        text-align: left;
+    }
+
+    details[open] summary ~ * {
+        animation: sweep .5s ease-in-out;
+    }
+
+    @keyframes sweep {
+        0%    {opacity: 0; margin-left: -10px}
+        100%  {opacity: 1; margin-left: 0px}
+    }
     </style>
 
 </head>
@@ -103,7 +116,7 @@ $db = connectDb();
         while ($row = mysqli_fetch_assoc($appointment_res)) {
             echo '<details>';
             echo '<summary class="une_belle_boite">' . $row['date_appoi'] . '</summary>';
-            echo '<p>Appointment date : ' . $row['date_appoi'] . ' Appointment Hour : ' . $row['hours_appoi'] . ' Appointment Address :'. $row['number']. ' '. $row['street']. ' '. $row['zipcode'] . ' Patient first name : ' . $row['firstname'] . ' Patient last name : ' . $row['lastname'] . ' Patient Social Security Number : ' . $row['socialsecuritynumber'];
+            echo '<p class="informations">Appointment date : ' . $row['date_appoi'] . ' Appointment Hour : ' . $row['hours_appoi'] . ' Appointment Address :'. $row['number']. ' '. $row['street']. ' '. $row['zipcode'] . ' Patient first name : ' . $row['firstname'] . ' Patient last name : ' . $row['lastname'] . ' Patient Social Security Number : ' . $row['socialsecuritynumber'];
             echo ' GPS Coordinates  Longitude : ' . $row['longitude'] . ' Latitude : ' . $row['latitude'] . '</p>';
             echo '</details>';
         }
