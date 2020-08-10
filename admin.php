@@ -119,7 +119,7 @@ $db = connectDb();
         $result = mysqli_query($db, $patient_display);
         while ($patient = mysqli_fetch_assoc($result)) {
             echo "<form action='adminScript.php' method='POST' name='formPatient'> <tr><td><input type='text' name='firstname' value ='" . $patient['firstname'] . "'></td> <td><input type='text' name='lastname' value ='" . $patient['lastname'] . "'>";
-            echo "</td> <td><input type='text' name='socialsecuritynumber' value = '" . $patient['socialsecuritynumber'] . "'></td> <td><input type='text' name='id_auth' value ='" . $patient['id_auth'] . "'";
+            echo "</td> <td><input disabled type='text' name='socialsecuritynumber' value = '" . $patient['socialsecuritynumber'] . "'><input type='hidden' name='socialsecuritynumber' value = '" . $patient['socialsecuritynumber'] . "'></td> <td><input type='text' name='id_auth' value ='" . $patient['id_auth'] . "'";
             echo "</td> <td><input type='submit' name='modifyPatient'value='Modify'></td> <td><input type='submit'  name='deletePatient' value='Delete'></td> </tr></form>";
         }
         ?>
@@ -146,7 +146,7 @@ $db = connectDb();
         $result = mysqli_query($db, $doctor_display);
         while ($doctor = mysqli_fetch_assoc($result)) {
             echo "<form action='adminScript.php' method='POST' name='formDoctor'> <tr><td><input type='text' name='firstname' value ='" . $doctor['firstname'] . "'></td> <td><input type='text' name='lastname' value ='" . $doctor['lastname'] . "'>";
-            echo "</td> <td><input type='text' name='rpps' value = '" . $doctor['rpps'] . "'></td> <td><input type='text' name='id_auth' value ='" . $doctor['id_auth'] . "'";
+            echo "</td> <td><input disabled type='text' name='rpps' value = '" . $doctor['rpps'] . "'><input type='hidden' name='rpps' value = '" . $doctor['rpps'] . "'></td> <td><input type='text' name='id_auth' value ='" . $doctor['id_auth'] . "'";
             echo "</td> <td><input type='submit' name='modifyDoctor'value='Modify'></td> <td><input type='submit'  name='deleteDoctor' value='Delete'></td> </tr></form>";
         }
         ?>

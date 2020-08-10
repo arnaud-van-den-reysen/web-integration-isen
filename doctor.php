@@ -109,16 +109,26 @@ $db = connectDb();
         echo '<summary class="title_doctor"> Docteur ' . $user['firstname'] . ' ' . $user['lastname'] . '</summary>';
         echo '<p> ID : ' . $user['id_auth'] . ' RPPS : ' . $user['rpps'] . '</p>';
         echo '</details>';
+        
+
+        $query = "SELECT socialsecuritynumber FROM patient_medical_record ORDER BY ASC";
+        $result = mysqli_query($db, $query);
+        echo '<form action = "doctorScript.php" method="POST" name="creaAppointment"><label for="date_appoi">Appointment Date :</label> <input type="date" id="date_appoi"><label for="hour_appoi">Appointment Hour :</label><input type="time" id="hour_appoi" name="appt"><label for="socialsecuritynumber"> socialsecuritynumber:</label><select id="socialsecuritynumber" name="socialsecuritynumber">';
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo '<option value="'. $row['socialsecuritynumber'].'">'.$row['socialsecuritynumber'].'</option>';
+        }
+        echo '</select> <input type="submit" name="createAppointment" value="create"></form>';
+
         $id_doct = $user['id_doc'];
         $appointment_display = "SELECT * FROM (((appointment INNER JOIN patient_medical_record ON appointment.id_medrec = patient_medical_record.id_medrec) INNER JOIN social_details ON social_details.id_socdet = patient_medical_record.id_socdet) INNER JOIN gps_coordinates ON appointment.id_gpsc = gps_coordinates.id_gpsc) INNER JOIN address ON address.id_addr = appointment.id_addr WHERE appointment.id_doc = '$id_doct' ORDER BY appointment.date_appoi";
         $appointment_res = mysqli_query($db, $appointment_display);
         echo '<div class="container">';
         while ($row = mysqli_fetch_assoc($appointment_res)) {
             echo '<details>';
-            echo '<summary class="une_belle_boite">' . $row['date_appoi'] . '</summary>';
-            echo '<p class="informations">Appointment date : ' . $row['date_appoi'] . ' Appointment Hour : ' . $row['hours_appoi'] . ' Appointment Address :'. $row['number']. ' '. $row['street']. ' '. $row['zipcode'] . ' Patient first name : ' . $row['firstname'] . ' Patient last name : ' . $row['lastname'] . ' Patient Social Security Number : ' . $row['socialsecuritynumber'];
+            echo '<summary class="une_belle_boite"><form action="doctorScript.php" method="POST" name="formAppointment">' . $row['date_appoi'] . '</summary>';
+            echo '<p class="informations">Appointment date : ' . $row['date_appoi'] . '<input type="hidden" name="date_appoi" value = "' . $row["date_appoi"] . '">  Appointment Hour : ' . $row['hours_appoi'] . '<input type="hidden" name="hour_appoi" value = "' . $row["hours_appoi"] . '"> Appointment Address :'. $row['number']. ' '. $row['street']. ' '. $row['zipcode'] . ' Patient first name : ' . $row['firstname'] . ' Patient last name : ' . $row['lastname'] . '<input type="hidden" name="socialsecuritynumber" value = "' . $row["socialsecuritynumber"] . '"> Patient Social Security Number : ' . $row['socialsecuritynumber'];
             echo ' GPS Coordinates  Longitude : ' . $row['longitude'] . ' Latitude : ' . $row['latitude'] . '</p>';
-            echo '</details>';
+            echo '<input type="submit" name="deleteAppointment" value="Delete"></form></details>';
         }
         echo '</div>';
        ?>

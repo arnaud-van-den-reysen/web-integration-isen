@@ -32,6 +32,8 @@ if (isset($_POST['modifyUser'])) {
     if (count($errors) == 0) {
         $query = "UPDATE authentication SET mail='$email', username='$username', isAdmin=$isAdmin, isDoctor=$isDoctor WHERE id_auth=$idAuth";
         mysqli_query($db, $query);
+        $b = mysqli_error($db);
+        echo $b;
         
     }
 
@@ -46,6 +48,8 @@ if (isset($_POST['deleteUser'])) {
     if (count($errors) == 0) {
         $query = "DELETE FROM authentication WHERE id_auth=$idAuth";
         mysqli_query($db, $query);
+        $b = mysqli_error($db);
+        echo $b;
     }
 }
 
@@ -60,33 +64,73 @@ if (isset($_POST['modifyPatient'])) {
     if (empty($lastname)) { array_push($errors, "lastname is required"); }
     if (empty($socialsecuritynumber)) { array_push($errors, "socialsecuritynumber is required"); }
 
-    $user_check_query = "SELECT * FROM FROM patient_medical_record INNER JOIN social_details ON patient_medical_record.id_socdet = social_details.id_socdet WHERE socialsecuritynumber='$socialsecuritynumber' LIMIT 1";
-    $result = mysqli_query($db, $user_check_query);
-
-    while ($user = mysqli_fetch_assoc($result)) { // if user exists
-        if ($user['socialsecuritynumber'] === $socialsecuritynumber) {
-            array_push($errors, "socialsecuritynumber already exists");
-        }
-    }
     if (count($errors) == 0) {
-        $query = "UPDATE patient_medical_record SET socialsecuritynumber='$socialsecuritynumber', username='$username', isAdmin=$isAdmin, isDoctor=$isDoctor WHERE id_auth=$idAuth";
+        $query = "UPDATE patient_medical_record SET id_auth='$id_auth'  WHERE socialsecuritynumber='$socialsecuritynumber'";
         mysqli_query($db, $query);
-        
+        $query2 = "SELECT id_medrec FROM patient_medical_record WHERE socialsecuritynumber='$socialsecuritynumber'";
+        $res = mysqli_query($db, $query2);
+        $num = mysqli_fetch_assoc($res);
+        $medrec = $num['id_medrec'];
+        $query3 = "UPDATE social_details SET firstname ='$firstname', lastname = '$lastname' WHERE id_medrec = '$medrec'";
+        mysqli_query($db, $query3);
+        $b = mysqli_error($db);
+        echo $b;
     }
 
 }
 
-//deleteUser clicked
-if (isset($_POST['deleteUser'])) {
-    $idAuth = mysqli_real_escape_string($db, $_POST['idAuth']);
+//deletePatient clicked
+if (isset($_POST['deletePatient'])) {
+    $socialsecuritynumber = mysqli_real_escape_string($db, $_POST['socialsecuritynumber']);
 
-    if (empty($idAuth)) { array_push($errors, "idAuth is required"); }
+    if (empty($socialsecuritynumber)) { array_push($errors, "socialsecuritynumber is required"); }
 
     if (count($errors) == 0) {
-        $query = "DELETE FROM authentication WHERE id_auth=$idAuth";
+        $query = "DELETE FROM patient_medical_record WHERE socialsecuritynumber=$socialsecuritynumber";
         mysqli_query($db, $query);
+        $b = mysqli_error($db);
+        echo $b;
     }
 }
 
+//modifyDoctor clicked
+if (isset($_POST['modifyDoctor'])) {
+    $firstname = mysqli_real_escape_string($db, $_POST['firstname']);
+    $lastname = mysqli_real_escape_string($db, $_POST['lastname']);
+    $rpps = mysqli_real_escape_string($db, $_POST['rpps']);
+    $id_auth = mysqli_real_escape_string($db, $_POST['id_auth']);
+
+    if (empty($firstname)) { array_push($errors, "firstname is required"); }
+    if (empty($lastname)) { array_push($errors, "lastname is required"); }
+    if (empty($rpps)) { array_push($errors, "rpps is required"); }
+
+    if (count($errors) == 0) {
+        $query = "UPDATE doctor SET id_auth='$id_auth' WHERE rpps='$rpps'";
+        mysqli_query($db, $query);
+        $query2 = "SELECT id_doc FROM doctor WHERE rpps='$rpps'";
+        $res = mysqli_query($db, $query2);
+        $num = mysqli_fetch_assoc($res);
+        $id_doc = $num['id_doc'];
+        $query3 = "UPDATE social_details SET firstname ='$firstname', lastname = '$lastname' WHERE id_doc = '$id_doc'";
+        mysqli_query($db, $query3);
+        $b = mysqli_error($db);
+        echo $b;
+    }
+
+}
+
+//deleteDoctor clicked
+if (isset($_POST['deleteDoctor'])) {
+    $rpps = mysqli_real_escape_string($db, $_POST['rpps']);
+
+    if (empty($rpps)) { array_push($errors, "rpps is required"); }
+
+    if (count($errors) == 0) {
+        $query = "DELETE FROM doctor WHERE rpps=$rpps";
+        mysqli_query($db, $query);
+        $b = mysqli_error($db);
+        echo $b;
+    }
+}
 header('location: admin.php');
 ?>
