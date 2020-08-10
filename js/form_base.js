@@ -41,7 +41,7 @@ function form() {
     var First_symptom = form.options[form.selectedIndex].value;
 
     if (First_symptom === "1") {
-        window.location = "pages/symptom_anxiety.html";
+        window.location = "./pages/symptom_anxiety.html";
     } else if (First_symptom === "2") {
         window.location = "pages/symptom_armpain.html";
     } else if (First_symptom === "3") {
