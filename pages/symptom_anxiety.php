@@ -56,25 +56,25 @@ and open the template in the editor.
         <link href="/Static/css/blog.css" rel="stylesheet">
     </head>
 
-    <body onmousemove="myFunction(showCoords(event))">
-    <header class="blog-header py-3 px-3">
-        <div class="row flex-nowrap justify-content-between align-items-center mx-5">
-            <div class="col-4 pt-1">
-                <a class="text-muted" href="../form_base.php">Faire son diagnostic</a>
-                <a class="text-muted ml-5" href="../mouse.php">Mouse stalker</a>
-            </div>
-            <div class="col-4 text-center">
-                <a class="blog-header-logo text-dark" href="http://boushoku.alwaysdata.net">ALED</a>
-            </div>
-            <div class="col-4 d-flex justify-content-end align-items-center">
-                <form class="form-inline ">
-                    <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search"
-                           aria-label="Search">
-                    <i class="fas fa-search" aria-hidden="true"></i>
-                </form>
-
-                <a class="btn btn-sm btn-outline-secondary" href="../login.php">Login</a>
-            </div>
+    <body style="background-color: #333; color: white" class="text-center" onmousemove="myFunction(showCoords(event))">
+    <header class="masthead mb-auto">
+        <div class="inner">
+            <h3 class="masthead-brand">Aled</h3>
+            <nav class="nav nav-masthead justify-content-center">
+                <a class="nav-link active" href="index.php">Home</a>
+                <?php  if (isset($_SESSION['username'])) : ?>
+                    <a class="nav-link" href="#"><?php echo $_SESSION['username']; ?></a>
+                    <?php if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1) : ?>
+                        <a class="nav-link" href="admin.php"> Admin</a>
+                    <?php endif ?>
+                    <?php if(isset($_SESSION['doctor']) && $_SESSION['doctor'] == 1) : ?>
+                        <a class="nav-link" href="doctor.php"> Doctor</a>
+                    <?php endif ?>
+                    <a class="nav-link" href="index.php?logout='1'">Logout</a>
+                <?php else :?>
+                    <a class="nav-link" href="login.php">Login</a>
+                <?php endif ?>
+            </nav>
         </div>
     </header>
     <div class="container text-center">

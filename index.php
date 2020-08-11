@@ -84,7 +84,7 @@ if (isset($_GET['logout'])) {
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="Static/js/jquery.min.js"</script>
+<script> src="Static/js/jquery.min.js"</script>
 <script>window.jQuery || document.write('<script src="Static/js/jquery.min.js"><\/script>')</script>
 <script src="Static/js/popper.min.js"></script>
 <script src="Static/js/bootstrap.min.js"></script>
