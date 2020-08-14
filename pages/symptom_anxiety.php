@@ -152,12 +152,7 @@ and open the template in the editor.
             var str = maCoord.x+"/"+maCoord.y;
             listeCoor = listeCoor + str + ",";
             $(".input1").val(listeCoor);
-            document.getElementById("contFichier2").value =
-            document.getElementById("slider").value + "," +
-            document.forms["form_answers"].elements["answer1"].value + "," +
-            document.getElementById("slider2").value + "," +
-            document.getElementById("slider3").value + "," +
-            document.forms["form_answers"].elements["answer2"].value + ",";
+            document.getElementById("contFichier2").value = document.getElementById("slider").value + "," + document.forms["form_answers"].elements["answer1"].value + "," + document.getElementById("slider2").value + "," + document.getElementById("slider3").value + "," + document.forms["form_answers"].elements["answer2"].value + ",";
         }
 
 

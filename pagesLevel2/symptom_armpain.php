@@ -110,11 +110,13 @@ and open the template in the editor.
 <ul id="myList" name="contFichier">
     <li>x/y</li>
 </ul>
-<form action="../CreaFichier.php?username=<?php echo $_SESSION['username']; ?>" method="post" id="envoiPHP" TARGET=_BLANK>
+<form action="../pages/finish.php" method="post" id="envoiPHP">
     <input type="text" class="input1" id="contFichier" name="contFichier"
            size=9999>
            <input  type="text" class="input1" id="contFichier2" name="contFichier2"
                   size=9999>
+
+                  <input type="Submit" name="submit" value="Confirm">
 </form>
 
 
@@ -149,8 +151,6 @@ and open the template in the editor.
         document.forms["form_answers"].elements["answer3"].value + "," +
         document.forms["form_answers"].elements["answer4"].value + "," ;
     }
-
-
 </script>
     </body>
 </html>
