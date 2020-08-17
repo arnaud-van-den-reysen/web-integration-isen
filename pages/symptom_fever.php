@@ -101,8 +101,6 @@ and open the template in the editor.
                 <input type="radio" name="answer5" value="no"> No<br>
             </div>
 
-            <input type="button" onclick="window.location.href = '../pages/form_2.php';clearCoor();" id="btn_confirm_1" name="sub_send_2" value="Confirm">
-            <input type="button" onclick="window.location.href = '../form_base.php';clearCoor();" id="btn_cancel" name="cancel" value="Cancel">
 
         </form>
 </div>
@@ -111,12 +109,14 @@ and open the template in the editor.
 <ul id="myList" name="contFichier">
     <li>x/y</li>
 </ul>
-<form action="../CreaFichier.php?username=<?php echo $_SESSION['username']; ?>" method="post" id="envoiPHP" TARGET=_BLANK>
+<form action="./form_2.php" method="post" id="envoiPHP">
     <input type="text" class="input1" id="contFichier" name="contFichier"
            size=9999>
            <input style="visibility: hidden;" type="text" class="input1" id="contFichier2" name="contFichier2"
                   size=9999>
+                  <input type="Submit" name="submit" value="Confirm">
 </form>
+
 
 
 <script>

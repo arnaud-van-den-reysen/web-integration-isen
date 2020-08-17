@@ -1,5 +1,7 @@
 <?php
 session_start();
+
+file_put_contents("./coordonnees/answers_.txt", "");
  ?>
 <!DOCTYPE html>
 <!--
