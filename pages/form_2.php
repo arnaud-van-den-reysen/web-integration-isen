@@ -62,28 +62,28 @@ and open the template in the editor.
                 <div>
                     <label for="Second_symptom">Your second symptom </label>
                     <select class="select" name="Second_symptom" id="Second_symptom">
-                        <option value="30">Anxiety</option>
+                        <option value="1">Anxiety</option>
                         <option value="2">Arm pain</option>
-                        <option value="100">Back pain</option>
-                        <option value="3">Breathing difficulty</option>
-                        <option value="50">Chills</option>
-                        <option value="43">Cough</option>
-                        <option value="29">Delusions</option>
+                        <option value="3">Back pain</option>
+                        <option value="4">Breathing difficulty</option>
+                        <option value="5">Chills</option>
+                        <option value="6">Cough</option>
+                        <option value="7">Delusions</option>
                         <option value="8">Diarrhea</option>
-                        <option value="177">Distended belly</option>
+                        <option value="9">Distended belly</option>
                         <option value="10">Ear pain</option>
-                        <option value="98">Fatigue</option>
-                        <option value="44">Fever</option>
-                        <option value="353">Flatulence</option>
-                        <option value="119">Headache</option>
-                        <option value="301">Nausea</option>
-                        <option value="338">Neck pain</option>
+                        <option value="11">Fatigue</option>
+                        <option value="12">Fever</option>
+                        <option value="13">Flatulence</option>
+                        <option value="14">Headache</option>
+                        <option value="15">Nausea</option>
+                        <option value="16">Neck pain</option>
                         <option value="17">Nosebleed</option>
                         <option value="18">Permanent thirst</option>
-                        <option value="150">Stomachache</option>
-                        <option value="9">Sweat</option>
-                        <option value="32">Tremor</option>
-                        <option value="8">Vertigo</option>
+                        <option value="19">Stomachache</option>
+                        <option value="20">Sweat</option>
+                        <option value="21">Tremor</option>
+                        <option value="22">Vertigo</option>
                         <option value="0">Nothing</option>
                     </select>
                 </div>
