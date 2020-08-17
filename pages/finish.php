@@ -1,7 +1,7 @@
 <?php
 session_start();
-file_put_contents('../coordonnees/coor_'.'.txt', $_POST['contFichier'], FILE_APPEND);
-    file_put_contents('../coordonnees/answers_'.'.txt', $_POST['contFichier2'], FILE_APPEND);
+file_put_contents('../coordonnees/coor_'. $_SESSION["username"].'.txt', $_POST['contFichier'], FILE_APPEND);
+    file_put_contents('../coordonnees/answers_'. $_SESSION["username"].'.txt', $_POST['contFichier2'], FILE_APPEND);
     echo '<script>javascript:window.close()</script>';
  ?>
 <!DOCTYPE html>

@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-file_put_contents("./coordonnees/answers_.txt", "");
+file_put_contents("./coordonnees/answers_". $_SESSION['username'].".txt", "");
  ?>
 <!DOCTYPE html>
 <!--
