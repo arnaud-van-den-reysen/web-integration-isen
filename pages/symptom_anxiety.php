@@ -108,8 +108,7 @@ and open the template in the editor.
                 <p>Value: <span id="answer2value"></span></p>
             </div>
 
-            <input type="button" onclick="window.location.href = '../pages/form_2.php';clearCoor();" id="btn_confirm_1" name="sub_send_2" value="Confirm">
-            <input type="button" onclick="window.location.href = '../form_base.php';clearCoor();" id="btn_cancel" name="cancel" value="Cancel">
+    
 
         </form>
     </div>
