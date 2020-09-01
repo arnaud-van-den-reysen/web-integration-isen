@@ -39,19 +39,28 @@ function stop(stream) {
 
 startButton.addEventListener("click", function() {
     navigator.mediaDevices.getUserMedia({
+        // Pour déterminer si on prend la caméra et/ou la vidéo
         video: true,
         audio: false
     }).then(stream => {
+            //On créer un bouton invisible qui capturera et servira a Download la vidéo
+            var downloadButton = URL.createObjectURL(blob);
+            document.body.appendChild(downloadButton);
+            downloadButton.style = "display: none";
             downloadButton.href = stream;
+            //ça je crois que c'est à la fin de la capture
             return new Promise(resolve => preview.onplaying = resolve);
           }).then(() => startRecording(preview.captureStream(), recordingTimeMS))
           .then (recordedChunks => {
             let recordedBlob = new Blob(recordedChunks, { type: "video/webm" });
 
-            
-            recording.src = URL.createObjectURL(recordedBlob);  
+            //on fait une URL avec les données vidéos
+            recording.src = URL.createObjectURL(recordedBlob); 
+            //que l'on ajoute a downloadButton et on clique sur le bouton pour forcer le DL après je crois que ça ne sauvegarde pas
             downloadButton.href = recording.src;
             downloadButton.download = "RecordedVideo.webm";
+            downloadButton.click();
+            window.URL.revokeObjectURL(recording.src);
 
             log("Successfully recorded " + recordedBlob.size + " bytes of " +
                 recordedBlob.type + " media.");
