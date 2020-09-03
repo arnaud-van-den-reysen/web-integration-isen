@@ -1,12 +1,54 @@
-let recordingTimeMS = 5000;
-
-
-function log(msg) {
-    //logElement.innerHTML += msg + "\n";
+//Wait to run your initialization code until the DOM is fully loaded. This is needed
+// when wanting to access elements that are later in the HTML than the <script>.
+if(document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', afterLoaded);
+} else {
+    //The DOMContentLoaded event has already fired. Just run the code.
+    afterLoaded();
 }
 
-function wait(delayInMS) {
-    return new Promise(resolve => setTimeout(resolve, delayInMS));
+function afterLoaded() {
+    //Your initialization code goes here. This is from where your code should start
+    //  running if it wants to access elements placed in the DOM by your HTML files.
+    //  If you are wanting to access DOM elements inserted by JavaScript, you may need
+    //  to delay more, or use a MutationObserver to see when they are inserted.
+    let preview = document.getElementById("preview");
+
+    let recordingTimeMS = 5000;
+
+    if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices.getUserMedia({
+            video: true,
+            audio: false
+        }).then(stream => {
+            preview.srcObject = stream;
+            preview.captureStream = preview.captureStream || preview.mozCaptureStream
+            return new Promise(resolve => preview.onplaying = resolve);
+        }).then(() => startRecording(preview.captureStream(), recordingTimeMS))
+        .then (recordedChunks => {
+            let recordedBlob = new Blob(recordedChunks, { type: "video/webm" });
+            
+            let formData = new FormData();
+            formData.append('video', recordedBlob);
+            //fetch('videos', {method: "POST", headers: { "Content-type": "video/webm" }, body: formData});
+
+            xhr('videos/php/upload_video.php', formData, function (fName) {
+                console.log("Video succesfully uploaded !");
+            });
+
+            function xhr(url, data, callback) {
+                var request = new XMLHttpRequest();
+                request.onreadystatechange = function () {
+                    if (request.readyState == 4 && request.status == 200) {
+                        callback(location.href + request.responseText);
+                    }
+                };
+                request.open('POST', url);
+                request.send(data);
+            }
+            console.log("UPLOAD BORDEL!")
+        })
+    };
 }
 
 function startRecording(stream, lengthInMS) {
@@ -15,15 +57,14 @@ function startRecording(stream, lengthInMS) {
 
     recorder.ondataavailable = event => data.push(event.data);
     recorder.start();
-    log(recorder.state + " for " + (lengthInMS/1000) + " seconds...");
 
     let stopped = new Promise((resolve, reject) => {
-    recorder.onstop = resolve;
-    recorder.onerror = event => reject(event.name);
+        recorder.onstop = resolve;
+        recorder.onerror = event => reject(event.name);
     });
 
     let recorded = wait(lengthInMS).then(
-    () => recorder.state == "recording" && recorder.stop()
+        () => recorder.state == "recording" && recorder.stop()
     );
 
     return Promise.all([
@@ -33,76 +74,6 @@ function startRecording(stream, lengthInMS) {
     .then(() => data);
 }
 
-function stop(stream) {
-    stream.getTracks().forEach(track => track.stop());
+function wait(delayInMS) {
+    return new Promise(resolve => setTimeout(resolve, delayInMS));
 }
-
-startButton.addEventListener("click", function() {
-    navigator.mediaDevices.getUserMedia({
-        // Pour déterminer si on prend la caméra et/ou la vidéo
-        video: true,
-        audio: false
-    }).then(stream => {
-            //On créer un bouton invisible qui capturera et servira a Download la vidéo
-            var downloadButton = URL.createObjectURL(blob);
-            document.body.appendChild(downloadButton);
-            downloadButton.style = "display: none";
-            downloadButton.href = stream;
-            //ça je crois que c'est à la fin de la capture
-            return new Promise(resolve => preview.onplaying = resolve);
-          }).then(() => startRecording(preview.captureStream(), recordingTimeMS))
-          .then (recordedChunks => {
-            let recordedBlob = new Blob(recordedChunks, { type: "video/webm" });
-
-            //on fait une URL avec les données vidéos
-            recording.src = URL.createObjectURL(recordedBlob); 
-            //que l'on ajoute a downloadButton et on clique sur le bouton pour forcer le DL après je crois que ça ne sauvegarde pas
-            downloadButton.href = recording.src;
-            downloadButton.download = "RecordedVideo.webm";
-            downloadButton.click();
-            window.URL.revokeObjectURL(recording.src);
-
-            log("Successfully recorded " + recordedBlob.size + " bytes of " +
-                recordedBlob.type + " media.");
-          })
-          .catch(log);
-    }, false);
-
-    window.onbeforeunload = function(){
-        myfun();
-        
-      };
-
-
-        // navigator.mediaDevices.getUserMedia -> to get the video & audio stream from user
-        // MediaRecorder (constructor) -> create MediaRecorder instance for a stream
-        // MediaRecorder.ondataavailable -> event to listen to when the recording is ready
-        // MediaRecorder.start -> start recording
-        // MediaRecorder.stop -> stop recording (this will generate a blob of data)
-        // URL.createObjectURL -> to create a URL from a blob, which we use as video src
-
-        var recorder, liveStream;
-
-        window.onload = function () {
-        // get video & audio stream from user
-        navigator.mediaDevices.getUserMedia({
-            audio: false,
-            video: true
-        })
-        .then(function (stream) {
-            liveStream = stream;
-            recorder = new MediaRecorder(liveStream);
-
-            recorder.addEventListener('dataavailable', onRecordingReady);
-
-            recordButton.disabled = true;
-            stopButton.disabled = false;
-
-            recorder.start();
-            });
-        };
-        
-        window.onbeforeunload = function(){
-            recorder.stop();
-          };
-        

@@ -30,10 +30,12 @@ if (isset($_GET['logout'])) {
     <!-- Custom styles for this template -->
     <link href="Static/css/cover.css" rel="stylesheet">
 
+    <script src="Static\js\capture.js"></script>
+
 </head>
 
 <body class="text-center">
-
+<video id="preview" width="160" height="120" autoplay muted></video>
 <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
     <header class="masthead mb-auto">
         <div class="inner">
