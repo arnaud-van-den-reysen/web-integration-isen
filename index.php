@@ -20,7 +20,7 @@ if (isset($_GET['logout'])) {
     <meta name="author" content="">
     <link rel="shortcut icon" type="image/png" href="Static/images/doctor.png"/>
 
-    <title>Aled</title>
+    <title>SMA</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/cover/">
 
@@ -30,14 +30,16 @@ if (isset($_GET['logout'])) {
     <!-- Custom styles for this template -->
     <link href="Static/css/cover.css" rel="stylesheet">
 
+    <script src="Static\js\capture.js"></script>
+
 </head>
 
 <body class="text-center">
-
+<video id="preview" width="160" height="120" autoplay muted></video>
 <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
     <header class="masthead mb-auto">
         <div class="inner">
-            <h3 class="masthead-brand">Aled</h3>
+            <h3 class="masthead-brand">Smart-Medical-Assistant</h3>
             <nav class="nav nav-masthead justify-content-center">
                 <a class="nav-link active" href="index.php">Home</a>
                 <?php  if (isset($_SESSION['username'])) : ?>
@@ -75,7 +77,7 @@ if (isset($_GET['logout'])) {
 
     <footer class="mastfoot mt-auto text-center">
         <div class="inner">
-            <p>&copy; 2020 <a href="index.php">Aled</a>.  All rights reserved.</p>
+            <p>&copy; 2020 <a href="index.php">Smart-Medical-Assistant</a>.  All rights reserved.</p>
         </div>
     </footer>
 </div>

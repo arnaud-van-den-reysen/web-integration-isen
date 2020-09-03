@@ -97,8 +97,8 @@ and open the template in the editor.
             </div>
 
             <div>E. Have you lost weight recently?
-                <input type="radio" name="answer" value="yes"> Yes
-                <input type="radio" name="answer" value="no"> No<br>
+                <input type="radio" name="answer" value="10"> Yes
+                <input type="radio" name="answer" value="0"> No<br>
             </div>
 
 
@@ -143,7 +143,7 @@ and open the template in the editor.
         var str = maCoord.x+"/"+maCoord.y;
         listeCoor = listeCoor + str + ",";
         $(".input1").val(listeCoor);
-        document.getElementById("contFichier2").value =
+        document.getElementById("contFichier2").value ="390"+","+
         document.getElementById("slider").value + "," +
         document.getElementById("slider2").value + "," +
         document.getElementById("slider3").value + "," +

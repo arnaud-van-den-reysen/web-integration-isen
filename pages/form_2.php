@@ -1,7 +1,7 @@
 <?php
 session_start();
 file_put_contents('../coordonnees/coor_'. $_SESSION["username"].'.txt', $_POST['contFichier'], FILE_APPEND);
-    file_put_contents('../coordonnees/answers_'. $_SESSION["username"].'.txt', $_POST['contFichier2'], FILE_APPEND);
+file_put_contents("../coordonnees/Patient". $_SESSION['username']."F".".txt",  $_POST['contFichier2'], FILE_APPEND);
     echo '<script>javascript:window.close()</script>';
  ?>
 <!DOCTYPE html>
@@ -72,7 +72,6 @@ and open the template in the editor.
                         <option value="5">Chills</option>
                         <option value="6">Cough</option>
                         <option value="7">Delusions</option>
-                        <option value="8">Diarrhea</option>
                         <option value="9">Distended belly</option>
                         <option value="10">Ear pain</option>
                         <option value="11">Fatigue</option>

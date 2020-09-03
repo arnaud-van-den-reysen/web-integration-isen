@@ -77,28 +77,28 @@ and open the template in the editor.
         <form name="form_answers" id ="form_answers" action="" method="POST">
 
             <div>A. Is your temperature over 38°C/100,4°F ?
-                <input type="radio" name="answer" value="yes"> Yes
-                <input type="radio" name="answer" value="no"> No<br>
+                <input type="radio" name="answer" value="10"> Yes
+                <input type="radio" name="answer" value="0"> No<br>
             </div>
 
             <div>B. Are you feeling cold/having chills ?
-                <input type="radio" name="answer2" value="yes"> Yes
-                <input type="radio" name="answer2" value="no"> No<br>
+                <input type="radio" name="answer2" value="10"> Yes
+                <input type="radio" name="answer2" value="0"> No<br>
             </div>
 
             <div>C. Do you take drugs?
-                <input type="radio" name="answer3" value="yes"> Yes
-                <input type="radio" name="answer3" value="no"> No<br>
+                <input type="radio" name="answer3" value="10"> Yes
+                <input type="radio" name="answer3" value="0"> No<br>
             </div>
 
             <div>D. Do you have muscular pain/headache?
-                <input type="radio" name="answer4" value="yes"> Yes
-                <input type="radio" name="answer4" value="no"> No<br>
+                <input type="radio" name="answer4" value="10"> Yes
+                <input type="radio" name="answer4" value="0"> No<br>
             </div>
 
             <div>E. Have you lost your appetite?
-                <input type="radio" name="answer5" value="yes"> Yes
-                <input type="radio" name="answer5" value="no"> No<br>
+                <input type="radio" name="answer5" value="10"> Yes
+                <input type="radio" name="answer5" value="0"> No<br>
             </div>
 
 
@@ -112,11 +112,11 @@ and open the template in the editor.
 <form action="../pages/finish.php" method="post" id="envoiPHP">
     <input type="text" class="input1" id="contFichier" name="contFichier"
            size=9999>
-           <input  type="text" style="visibility: hidden;" class="input1" id="contFichier2" name="contFichier2"
+           <input style="visibility: hidden;" type="text" class="input1" id="contFichier2" name="contFichier2"
                   size=9999>
-
                   <input type="Submit" name="submit" value="Confirm">
 </form>
+
 
 
 <script>
@@ -145,7 +145,7 @@ and open the template in the editor.
         var str = maCoord.x+"/"+maCoord.y;
         listeCoor = listeCoor + str + ",";
         $(".input1").val(listeCoor);
-        document.getElementById("contFichier2").value =
+        document.getElementById("contFichier2").value ="44"+","+
         document.forms["form_answers"].elements["answer"].value + "," +
         document.forms["form_answers"].elements["answer2"].value + "," +
         document.forms["form_answers"].elements["answer3"].value + "," +

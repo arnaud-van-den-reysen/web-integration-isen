@@ -87,20 +87,19 @@ and open the template in the editor.
             </div>
 
             <div>C. Do you take drugs?
-                <input type="radio" name="answer" value="yes"> Yes
-                <input type="radio" name="answer" value="no"> No<br>
+                <input type="radio" name="answer" value="10"> Yes
+                <input type="radio" name="answer" value="0"> No<br>
             </div>
 
             <div>D. Loss of sensitivity in the zone
-                <input type="radio" name="answer2" value="yes"> Yes
-                <input type="radio" name="answer2" value="no"> No<br>
+                <input type="radio" name="answer2" value="10"> Yes
+                <input type="radio" name="answer2" value="0"> No<br>
             </div>
 
             <div>E. Have you picked your nose/ pushed an object up your nose?
-                <input type="radio" name="answer3" value="yes"> Yes
-                <input type="radio" name="answer3" value="no"> No<br>
+                <input type="radio" name="answer3" value="10"> Yes
+                <input type="radio" name="answer3" value="0"> No<br>
             </div>
-
 
 
         </form>
@@ -113,9 +112,8 @@ and open the template in the editor.
 <form action="../pages/finish.php" method="post" id="envoiPHP">
     <input type="text" class="input1" id="contFichier" name="contFichier"
            size=9999>
-           <input  type="text" style="visibility: hidden;" class="input1" id="contFichier2" name="contFichier2"
+           <input style="visibility: hidden;" type="text" class="input1" id="contFichier2" name="contFichier2"
                   size=9999>
-
                   <input type="Submit" name="submit" value="Confirm">
 </form>
 
@@ -147,7 +145,7 @@ and open the template in the editor.
         var str = maCoord.x+"/"+maCoord.y;
         listeCoor = listeCoor + str + ",";
         $(".input1").val(listeCoor);
-        document.getElementById("contFichier2").value =
+        document.getElementById("contFichier2").value ="391"+","+
         document.getElementById("slider").value + "," +
         document.getElementById("slider2").value + "," +
         document.forms["form_answers"].elements["answer"].value + "," +

@@ -82,25 +82,24 @@ and open the template in the editor.
             </div>
 
             <div>B. Do you have stomach cramps?
-                <input type="radio" name="answer" value="yes"> Yes
-                <input type="radio" name="answer" value="no"> No<br>
+                <input type="radio" name="answer" value="10"> Yes
+                <input type="radio" name="answer" value="0"> No<br>
             </div>
 
             <div>C. Do you often have indigestions?
-                <input type="radio" name="answer2" value="yes"> Yes
-                <input type="radio" name="answer2" value="no"> No<br>
+                <input type="radio" name="answer2" value="10"> Yes
+                <input type="radio" name="answer2" value="0"> No<br>
             </div>
 
             <div>D. Are you constipated?
-                <input type="radio" name="answer3" value="yes"> Yes
-                <input type="radio" name="answer3" value="no"> No<br>
+                <input type="radio" name="answer3" value="10"> Yes
+                <input type="radio" name="answer3" value="0"> No<br>
             </div>
 
             <div>E. Do you have IBS (irritable bowel syndrome)?
-                <input type="radio" name="answer4" value="yes"> Yes
-                <input type="radio" name="answer4" value="no"> No<br>
+                <input type="radio" name="answer4" value="10"> Yes
+                <input type="radio" name="answer4" value="0"> No<br>
             </div>
-
 
         </form>
 </div>
@@ -112,9 +111,8 @@ and open the template in the editor.
 <form action="../pages/finish.php" method="post" id="envoiPHP">
     <input type="text" class="input1" id="contFichier" name="contFichier"
            size=9999>
-           <input  type="text" style="visibility: hidden;" class="input1" id="contFichier2" name="contFichier2"
+           <input style="visibility: hidden;" type="text" class="input1" id="contFichier2" name="contFichier2"
                   size=9999>
-
                   <input type="Submit" name="submit" value="Confirm">
 </form>
 
@@ -145,7 +143,7 @@ and open the template in the editor.
         var str = maCoord.x+"/"+maCoord.y;
         listeCoor = listeCoor + str + ",";
         $(".input1").val(listeCoor);
-        document.getElementById("contFichier2").value =
+        document.getElementById("contFichier2").value ="353"+","+
         document.getElementById("slider").value + "," +
         document.forms["form_answers"].elements["answer"].value + "," +
         document.forms["form_answers"].elements["answer2"].value + "," +

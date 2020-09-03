@@ -1,3 +1,4 @@
+
 <?php
 session_start();
  ?>
@@ -87,8 +88,8 @@ and open the template in the editor.
             </div>
 
             <div>B. Did you have a recent emotional pain ?
-                <input type="radio" name="answer1" value="yes"> Yes
-                <input type="radio" name="answer1" value="no"> No<br>
+                <input id="radioyes" type="radio" name="answer1" value= "10"> Yes
+                <input id="radiono" type="radio" name="answer1" value= "0"> No<br>
             </div>
 
             <div class="my-3">C. Are you afraid ?
@@ -102,25 +103,25 @@ and open the template in the editor.
             </div>
 
             <div>E. Do you take drugs ?
-                <input type="radio" name="answer2" value="yes"> Yes
-                <input type="radio" name="answer2" value="no"> No<br>
+                <input type="radio" name="answer2" value= "10"> Yes
+                <input type="radio" name="answer2" value= "0"> No<br>
+                <p>Value: <span id="answer2value"></span></p>
             </div>
 
-
+    
 
         </form>
     </div>
-    <p id="demo"></p>
+        <p id="demo"></p>
 
-    <ul id="myList" name="contFichier">
-        <li>x/y</li>
-    </ul>
-    <form action="../pages/finish.php" method="post" id="envoiPHP">
+        <ul id="myList" name="contFichier">
+            <li>x/y</li>
+        </ul>
+        <form action="../pages/finish.php" method="post" id="envoiPHP">
     <input type="text" class="input1" id="contFichier" name="contFichier"
            size=9999>
-           <input  type="text" style="visibility: hidden;" class="input1" id="contFichier2" name="contFichier2"
+           <input style="visibility: hidden;" type="text" class="input1" id="contFichier2" name="contFichier2"
                   size=9999>
-
                   <input type="Submit" name="submit" value="Confirm">
 </form>
 
@@ -152,12 +153,7 @@ and open the template in the editor.
             var str = maCoord.x+"/"+maCoord.y;
             listeCoor = listeCoor + str + ",";
             $(".input1").val(listeCoor);
-            document.getElementById("contFichier2").value =
-            document.getElementById("slider").value + "," +
-            document.forms["form_answers"].elements["answer1"].value + "," +
-            document.getElementById("slider2").value + "," +
-            document.getElementById("slider3").value + "," +
-            document.forms["form_answers"].elements["answer2"].value + ",";
+            document.getElementById("contFichier2").value = "30"+","+document.getElementById("slider").value + "," + document.forms["form_answers"].elements["answer1"].value + "," + document.getElementById("slider2").value + "," + document.getElementById("slider3").value + "," + document.forms["form_answers"].elements["answer2"].value + ",";
         }
 
 
