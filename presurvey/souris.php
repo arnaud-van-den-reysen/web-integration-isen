@@ -1,4 +1,7 @@
-<?phpsession_start();?>
+<?php
+session_start();
+
+?>
 
 
 <head>
