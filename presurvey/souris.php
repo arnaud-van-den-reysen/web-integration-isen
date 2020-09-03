@@ -48,41 +48,47 @@
 
 
 <script type="text/javascript">
+//variable lançant un stop j'crois
   var flag = 0;
 
+  //aucune ide
 var elmids = ['divid'];
 
+//les coordonnées oklm
 var x, y = 0;
 
+//pour le calcul du temps?
 var d = new Date();
 
+//fonction qui récupère deux valeurs en fonction de l'écart avec le haut à gauche et le top de la page
 function getXYpos(elm) {
   x = elm.offsetLeft;
   y = elm.offsetTop;
 
+  //valeur total de l'offset avec le parent avec son parent à lui
   elm = elm.offsetParent;
 
-
+//du coup on prend le parent et on l'ajoute à l'offset de l'enfant jusqu'à ce qu'il n'y ai plus de parent, soit l'offest total de la position de l'élément
   while(elm != null) {
     x = parseInt(x) + parseInt(elm.offsetLeft);
     y = parseInt(y) + parseInt(elm.offsetTop);
     elm = elm.offsetParent;
   }
 
-
+  //On renvoie alors x et y sous la forme d'un tableau
   return {'xp':x, 'yp':y};
 }
 
-
+//la fonction qui récupère la position xy liée à la souris
 function getCoords(e) {
-
+  //position récupérée de l'élément this
   var xy_pos = getXYpos(this);
 
-
+  //test pour Microsoft edge
   if(navigator.appVersion.indexOf("MSIE") != -1) {
-
+    //récupèration du scrolling de la page
     var standardBody = (document.compatMode == 'CSS1Compat') ? document.documentElement : document.body;
-
+    //donne les coordonnées de la souris en fonction du scrolling de la page
     x = event.clientX + standardBody.scrollLeft;
     y = event.clientY + standardBody.scrollTop;
   }
@@ -91,6 +97,7 @@ function getCoords(e) {
     y = e.pageY;
   }
 
+  //prend la position x et y par rapport à l'offset de l'élément parent
   x = x - xy_pos['xp'];
   y = y - xy_pos['yp'];
 
