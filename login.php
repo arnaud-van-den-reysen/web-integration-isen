@@ -1,3 +1,7 @@
+<?php
+include('server.php');
+include('errors.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,10 +23,7 @@
 
 </head>
 <body>
-<?php
-include('server.php');
-include('errors.php');
-?>
+
 <div class="cover-container d-flex h-100 p-3 mx-1 flex-column">
     <header class="masthead mb-auto">
         <div class="inner">
