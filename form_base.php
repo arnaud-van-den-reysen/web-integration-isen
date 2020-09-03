@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-file_put_contents("./coordonnees/answers_". $_SESSION['username'].".txt", "");
+file_put_contents("./coordonnees/Patient". $_SESSION['username']."F".".txt", "");
  ?>
 <!DOCTYPE html>
 <!--
@@ -117,7 +117,6 @@ function myFunction(maCoord) {
                     <option value="5">Chills</option>
                     <option value="6">Cough</option>
                     <option value="7">Delusions</option>
-                    <option value="8">Diarrhea</option>
                     <option value="9">Distended belly</option>
                     <option value="10">Ear pain</option>
                     <option value="11">Fatigue</option>

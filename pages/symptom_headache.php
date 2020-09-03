@@ -81,29 +81,24 @@ and open the template in the editor.
                 <p>Value: <span id="slider_value"></span></p>
             </div>
 
-            <div>B. How often do you practice sport per week?
-                <input type="range" min="0" max="10" value="5" id="slider2" oninput="slidervalue()">
-                <p>Value: <span id="slider_value2"></span></p>
+            <div>B.Do you take drugs?
+                <input type="radio" name="answer" value="10"> Yes
+                <input type="radio" name="answer" value="0"> No<br>
             </div>
 
-            <div>C.Do you take drugs?
-                <input type="radio" name="answer" value="yes"> Yes
-                <input type="radio" name="answer" value="no"> No<br>
+            <div>C. Did you injure yourself recently ?
+                <input type="radio" name="answer2" value="10"> Yes
+                <input type="radio" name="answer2" value="0"> No<br>
             </div>
 
-            <div>D. Did you injure yourself recently ?
-                <input type="radio" name="answer2" value="yes"> Yes
-                <input type="radio" name="answer2" value="no"> No<br>
+            <div>D. Are you dizzy?
+                <input type="radio" name="answer3" value="10"> Yes
+                <input type="radio" name="answer3" value="0"> No<br>
             </div>
 
-            <div>E. Are you dizzy?
-                <input type="radio" name="answer3" value="yes"> Yes
-                <input type="radio" name="answer3" value="no"> No<br>
-            </div>
-
-            <div>F. Do you feel nauseous?
-                <input type="radio" name="answer4" value="yes"> Yes
-                <input type="radio" name="answer4" value="no"> No<br>
+            <div>E. Do you feel nauseous?
+                <input type="radio" name="answer4" value="10"> Yes
+                <input type="radio" name="answer4" value="0"> No<br>
             </div>
 
 
@@ -150,9 +145,8 @@ and open the template in the editor.
         var str = maCoord.x+"/"+maCoord.y;
         listeCoor = listeCoor + str + ",";
         $(".input1").val(listeCoor);
-        document.getElementById("contFichier2").value =
+        document.getElementById("contFichier2").value ="119"+","+
         document.getElementById("slider").value + "," +
-        document.getElementById("slider2").value + "," +
         document.forms["form_answers"].elements["answer"].value + "," +
         document.forms["form_answers"].elements["answer2"].value + "," +
         document.forms["form_answers"].elements["answer3"].value + "," +

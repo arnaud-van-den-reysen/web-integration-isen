@@ -86,18 +86,18 @@ and open the template in the editor.
             </div>
 
             <div>C. Do you take drugs ?
-                <input type="radio" name="answer" value="yes"> Yes
-                <input type="radio" name="answer" value="no"> No<br>
+                <input type="radio" name="answer" value="10"> Yes
+                <input type="radio" name="answer" value="0"> No<br>
             </div>
 
             <div>D. Did you injure yourself recently ?
-                <input type="radio" name="answer2" value="yes"> Yes
-                <input type="radio" name="answer2" value="no"> No<br>
+                <input type="radio" name="answer2" value="10"> Yes
+                <input type="radio" name="answer2" value="0"> No<br>
             </div>
 
             <div>E. Do you have allergies ?
-                <input type="radio" name="answer3" value="yes"> Yes
-                <input type="radio" name="answer3" value="no"> No<br>
+                <input type="radio" name="answer3" value="10"> Yes
+                <input type="radio" name="answer3" value="0"> No<br>
             </div>
 
 
@@ -144,7 +144,7 @@ and open the template in the editor.
         var str = maCoord.x+"/"+maCoord.y;
         listeCoor = listeCoor + str + ",";
         $(".input1").val(listeCoor);
-        document.getElementById("contFichier2").value =
+        document.getElementById("contFichier2").value ="3"+ ","+
         document.getElementById("slider").value + "," + document.getElementById("slider2").value + "," + document.forms["form_answers"].elements["answer"].value + "," +
         document.forms["form_answers"].elements["answer2"].value + "," +
         document.forms["form_answers"].elements["answer3"].value + "," ;

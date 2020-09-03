@@ -102,7 +102,6 @@ and open the template in the editor.
             </div>
 
 
-
         </form>
 </div>
 <p id="demo"></p>
@@ -113,9 +112,8 @@ and open the template in the editor.
 <form action="../pages/finish.php" method="post" id="envoiPHP">
     <input type="text" class="input1" id="contFichier" name="contFichier"
            size=9999>
-           <input  type="text" style="visibility: hidden;" class="input1" id="contFichier2" name="contFichier2"
+           <input style="visibility: hidden;" type="text" class="input1" id="contFichier2" name="contFichier2"
                   size=9999>
-
                   <input type="Submit" name="submit" value="Confirm">
 </form>
 
