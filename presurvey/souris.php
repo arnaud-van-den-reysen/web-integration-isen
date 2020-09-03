@@ -25,7 +25,6 @@
 
 
 <body style="background-color : #333">
-<video id="preview" width="160" height="120" autoplay muted></video>
 <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
     <header class="masthead mb-auto">
         <div class="inner">
