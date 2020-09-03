@@ -18,8 +18,6 @@
     <!-- Custom styles for this template -->
     <link href="../Static/css/cover.css" rel="stylesheet">
 
-    <script src="..\Static\js\capture.js"></script>
-
 </head>
 
 
