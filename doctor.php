@@ -85,13 +85,13 @@ $db = connectDb();
                 <a class="nav-link" href="index.php">Home</a>
                 <?php  if (isset($_SESSION['username'])) : ?>
                     <a class="nav-link" href="#"><?php echo $_SESSION['username']; ?></a>
-                    <a class="nav-link" href="index.php?logout='1'">logout</a>
                     <?php if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1) : ?>
                         <a class="nav-link" href="admin.php"> Admin</a>
                     <?php endif ?>
                     <?php if(isset($_SESSION['doctor']) && $_SESSION['doctor'] == 1) : ?>
                         <a class="nav-link active" href="doctor.php"> Doctor</a>
                     <?php endif ?>
+                    <a class="nav-link" href="index.php?logout='1'">logout</a>
                 <?php else :?>
                     <a class="nav-link" href="login.php">Login</a>
                 <?php endif ?>

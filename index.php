@@ -35,7 +35,11 @@ if (isset($_GET['logout'])) {
 </head>
 
 <body class="text-center">
-<video id="preview" width="160" height="120" autoplay muted></video>
+<?php  if (isset($_SESSION['username'])) : ?>
+    <video id="preview" width="160" height="120" autoplay muted></video>
+<?php else :?>
+    <p>Connectez vous.</p>
+<?php endif ?>
 <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
     <header class="masthead mb-auto">
         <div class="inner">

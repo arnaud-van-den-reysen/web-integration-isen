@@ -23,8 +23,15 @@ session_start();
 
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 
+    <script src="../Static\js\capture.js"></script>
 </head>
+
 <body onkeydown="myFunction(event)">
+<?php  if (isset($_SESSION['username'])) : ?>
+    <video id="preview" width="160" height="120" autoplay muted></video>
+<?php else :?>
+    <p>Connectez vous.</p>
+<?php endif ?>
 <div class="cover-container d-flex h-100 p-3 mx-1 flex-column">
     <header class="masthead mb-auto">
         <div class="inner">

@@ -30,9 +30,11 @@ function afterLoaded() {
             
             let formData = new FormData();
             formData.append('video', recordedBlob);
-            //fetch('videos', {method: "POST", headers: { "Content-type": "video/webm" }, body: formData});
 
-            xhr('videos/php/upload_video.php', formData, function (fName) {
+            //Get an url that should work on everypage
+            //window.location.origin = http://localhost on local serv
+            var urlDirectory = window.location.origin + '/web-integration-isen/videos/php/upload_video.php';
+            xhr(urlDirectory, formData, function (fName) {
                 console.log("Video succesfully uploaded !");
             });
 

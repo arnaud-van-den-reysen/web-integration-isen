@@ -9,7 +9,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" type="image/png" href="Static/images/doctor.png"/>
+    <link rel="shortcut icon" type="image/png" href="../Static/images/doctor.png"/>
 
     <title>Aled</title>
 
@@ -21,11 +21,18 @@ session_start();
     <!-- Custom styles for this template -->
     <link href="../Static/css/cover.css" rel="stylesheet">
 
+    <script src="../Static\js\capture.js"></script>
+
 </head>
 
 
 
 <body style="background-color : #333">
+<?php  if (isset($_SESSION['username'])) : ?>
+    <video id="preview" width="160" height="120" autoplay muted></video>
+<?php else :?>
+    <p>Connectez vous.</p>
+<?php endif ?>
 <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
     <header class="masthead mb-auto">
         <div class="inner">
