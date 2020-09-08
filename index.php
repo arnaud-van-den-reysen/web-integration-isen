@@ -77,6 +77,17 @@ if (isset($_GET['logout'])) {
                 <a href="login.php" class="btn btn-lg btn-secondary">Login now</a>
             </p>
         <?php endif ?>
+        <div id="voile-noire" class="block-alert">
+            <div id="merci-accepte" class="alert-privacy">
+                <div>
+                    <p>Le site Smart-Medical-Assistant est un logiciel aidant ses utilisateurs à recevoir la meileur aide médical possible. Pour cela nous avons besoin de récolter et de traiter un certain nombres de données personnels. Ces données peuvent être le nom, prénom, localisation, adresse postale, email, données médicales, flux vidéos et autres données personnels indispensable pour permettre un diagnostique précis et un bonne prise de rendez-vous.</p>
+                    <p>En cliquant sur le bouton "Accepter", vous autorisez le site Smart-Medical-Assistant à collecter, enregistrer, sauvegarder et traiter vos données personnels.</p>
+                </div>
+                <div>
+                    <button onclick="document.getElementById('voile-noire').style.display='none'">Accepter</button>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer class="mastfoot mt-auto text-center">
