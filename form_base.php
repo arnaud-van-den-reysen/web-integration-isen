@@ -1,7 +1,7 @@
 <?php
 session_start();
-
-file_put_contents("./coordonnees/Patient". $_SESSION['username']."F".".txt", "");
+include('id.php');
+file_put_contents("./coordonnees/Patient". $_SESSION['id_user']."F".".txt", $_SESSION['id_user'].",");
  ?>
 <!DOCTYPE html>
 <!--

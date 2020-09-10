@@ -5,6 +5,7 @@ if (isset($_GET['logout'])) {
     unset($_SESSION['username']);
     unset($_SESSION['admin']);
     unset($_SESSION['doctor']);
+    unset($_SESSION['id_user']);
     header("location: index.php");
     
 }
