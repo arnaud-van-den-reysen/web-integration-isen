@@ -35,7 +35,7 @@ session_start();
 <div class="cover-container d-flex h-100 p-3 mx-1 flex-column">
     <header class="masthead mb-auto">
         <div class="inner">
-            <h3 class="masthead-brand">Aled</h3>
+            <h3 class="masthead-brand">Smart-Medical-Assistant</h3>
             <nav class="nav nav-masthead justify-content-center">
                 <a class="nav-link active" href="index.php">Home</a>
               <!--  <a class="nav-link" href="login.php">Login</a> -->
@@ -45,7 +45,8 @@ session_start();
 <main role="main" class="inner cover">
     <div class="container text-center">
     <h1 class="my-5">Symptoms analysis</h1>
-    <p id="sentence">May you write the following sentence: "Hello and welcome to the MedicHuber app! How are you?"</p>
+    <p id="sentence">May you write the following sentence:</p>
+    <p>"Hello and welcome to the MedicHuber app! How are you?"</p>
 
     <p id="demo"></p>
     </br>
@@ -69,7 +70,7 @@ session_start();
 
 <footer class="mastfoot mt-auto text-center">
     <div class="inner">
-        <p>&copy; 2020 <a href="index.php">Aled</a>.  All rights reserved.</p>
+        <p>&copy; 2020 <a href="index.php">Smart-Medical-Assistant</a>.  All rights reserved.</p>
     </div>
 </footer>
 

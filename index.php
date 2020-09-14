@@ -41,7 +41,7 @@ if (isset($_GET['logout'])) {
 <?php else :?>
     <p>Connectez vous.</p>
 <?php endif ?>
-<div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+<div class="d-flex h-100 p-3 mx-auto flex-column">
     <header class="masthead mb-auto">
         <div class="inner">
             <h3 class="masthead-brand">Smart-Medical-Assistant</h3>
@@ -79,7 +79,7 @@ if (isset($_GET['logout'])) {
             </p>
         <?php endif ?>
         <div id="voile-noire" class="block-alert">
-            <div id="merci-accepte" class="alert-privacy">
+            <div id="merci-accepte" class="alert-privacy" style="position: relative; margin-left: auto; margin-right: auto">
                 <div>
                     <p>Le site Smart-Medical-Assistant est un logiciel aidant ses utilisateurs à recevoir la meileur aide médical possible. Pour cela nous avons besoin de récolter et de traiter un certain nombres de données personnels. Ces données peuvent être le nom, prénom, localisation, adresse postale, email, données médicales, flux vidéos et autres données personnels indispensable pour permettre un diagnostique précis et un bonne prise de rendez-vous.</p>
                     <p>En cliquant sur le bouton "Accepter", vous autorisez le site Smart-Medical-Assistant à collecter, enregistrer, sauvegarder et traiter vos données personnels.</p>

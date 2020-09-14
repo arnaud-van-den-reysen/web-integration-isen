@@ -13,7 +13,7 @@ $db = connectDb();
     <meta name="author" content="">
     <link rel="shortcut icon" type="image/png" href="Static/images/doctor.png"/>
 
-    <title>Aled</title>
+    <title>Smart-Medical-Assistant</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/cover/">
 
@@ -40,7 +40,7 @@ $db = connectDb();
 <div class="d-flex h-100 p-3 mx-auto flex-column">
     <header class="masthead mb-auto">
         <div class="inner">
-            <h3 class="masthead-brand">Aled</h3>
+            <h3 class="masthead-brand">Smart-Medical-Assistant</h3>
             <nav class="nav nav-masthead justify-content-center">
                 <a class="nav-link" href="index.php">Home</a>
                 <?php  if (isset($_SESSION['username'])) : ?>
@@ -158,7 +158,7 @@ $db = connectDb();
 
     <footer class="mastfoot mt-auto text-center">
         <div class="inner">
-            <p>&copy; 2020 <a href="index.php">Aled</a>.  All rights reserved.</p>
+            <p>&copy; 2020 <a href="index.php">Smart-Medical-Assistant</a>.  All rights reserved.</p>
         </div>
     </footer>
 </div>

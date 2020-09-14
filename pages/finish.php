@@ -47,10 +47,9 @@ and open the template in the editor.
 <div class="cover-container d-flex h-100 p-3 mx-1 flex-column">
     <header class="masthead mb-auto">
         <div class="inner">
-            <h3 class="masthead-brand">Aled</h3>
+            <h3 class="masthead-brand">Smart-Medical-Assistant</h3>
             <nav class="nav nav-masthead justify-content-center">
                 <a class="nav-link active" href="../index.php">Home</a>
-                <a class="nav-link" href="../login.php">Login</a>
             </nav>
         </div>
     </header>
