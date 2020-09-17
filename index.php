@@ -41,6 +41,7 @@ if (isset($_GET['logout'])) {
 <?php else :?>
     <p>Connectez vous.</p>
 <?php endif ?>
+<!-- NavBar -->
 <div class="d-flex h-100 p-3 mx-auto flex-column">
     <header class="masthead mb-auto">
         <div class="inner">
@@ -65,7 +66,7 @@ if (isset($_GET['logout'])) {
 
     <main role="main" class="inner cover">
     <img src="./Static/images/doctor.png">
-        <?php  if (isset($_SESSION['username'])) : ?>
+        <?php  if (isset($_SESSION['username'])) : ?> <!-- Vérification de connexion -->
             <h1 class="cover-heading">Make Your Diagnosis</h1>
             <p class="lead">Aled is web and mobile application where you can make your own diagnosis. You can now make your own diagnosis using the button below</p>
             <p class="lead">
@@ -78,7 +79,7 @@ if (isset($_GET['logout'])) {
                 <a href="login.php" class="btn btn-lg btn-secondary">Login now</a>
             </p>
         <?php endif ?>
-        <div id="voile-noire" class="block-alert">
+        <div id="voile-noire" class="block-alert"> <!-- Meesage d'accueil -->
             <div id="merci-accepte" class="alert-privacy" style="position: relative; margin-left: auto; margin-right: auto">
                 <div>
                     <p>Le site Smart-Medical-Assistant est un logiciel aidant ses utilisateurs à recevoir la meileur aide médical possible. Pour cela nous avons besoin de récolter et de traiter un certain nombres de données personnels. Ces données peuvent être le nom, prénom, localisation, adresse postale, email, données médicales, flux vidéos et autres données personnels indispensable pour permettre un diagnostique précis et un bonne prise de rendez-vous.</p>

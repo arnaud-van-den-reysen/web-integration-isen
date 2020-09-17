@@ -1,7 +1,7 @@
 <?php
 session_start();
-include('id.php');
-file_put_contents("./coordonnees/Patient". $_SESSION['id_user']."F".".txt", $_SESSION['id_user'].",");
+include('id.php');//Nécessaire pour récupérer l'id patient 
+file_put_contents("./coordonnees/Patient". $_SESSION['id_user']."F".".txt", $_SESSION['id_user'].","); //Initialisation du fichier patient pour le questionnaire : Nom fichier puis ajout de l'id patient au début du fichier
  ?>
 <!DOCTYPE html>
 <!--
@@ -34,6 +34,8 @@ and open the template in the editor.
     <link rel="shortcut icon" type="image/png" href="Static/images/doctor.png"/>
 
     <script>
+
+    //coordonne souris
 var listeCoor="";
 var d = new Date();
 function showCoords(event) {
@@ -52,7 +54,7 @@ function clearCoor() {
   document.getElementById("envoiPHP").submit();
 }
 
-function display(){
+function display(){ // Fonction Vérification des cases à cocher
     var checkBox1 = document.getElementById("acceptConditions1");
     var checkBox2 = document.getElementById("acceptConditions2");
     var text = document.getElementById("btn_symptom_1");
@@ -98,7 +100,7 @@ function myFunction(maCoord) {
 <div class="container text-center">
     <h1 class="my-5">Symptoms analysis</h1>
 
-
+<!-- Boutons à cocher -->
     <input onClick="display()" type="checkbox" id="acceptConditions1"> I understand and accept that the results given don't replace a real medical diagnostic<br>
     <input onClick="display()" type="checkbox" id="acceptConditions2"> I accept the processing and hosting of my health data<br>
 
