@@ -1,6 +1,6 @@
 <?php
 session_start();
- ?>
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,7 +55,7 @@ session_start();
     <p id="demo3"></p>
 
 
-    <form action="../CreaFichierClavier.php?username=<?php echo $_GET['username'];?>" method="POST" id="envoiPHP" TARGET=_BLANK onmousemove="myMouse(showCoords(event))" onclick="myClick()">
+    <form action="../CreaFichierClavier.php?username=<?php echo $_GET["username"];?>" method="POST" id="envoiPHP" TARGET=_BLANK onmousemove="myMouse(showCoords(event))" onclick="myClick()">
         <input type="text" class="input1" id="contFichier" name="contFichier"
             size=50>
             <input style="visibility: hidden;" type="text" class="input1" id="contFichier2" name="contFichier2"
