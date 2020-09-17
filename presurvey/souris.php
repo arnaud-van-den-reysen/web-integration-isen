@@ -20,7 +20,7 @@ session_start();
   <link href="../Static/css/cover.css" rel="stylesheet">
 
   <script src="../Static/js/capture.js"></script>
-  <script src="../Static/js/capture_souris_on_diag.js" type="text/javascript"></script>
+  <script src="../Static/js/capture_souris_on_diag_souris.js" type="text/javascript"></script>
   <script type="text/javascript">
     var username = "<?php echo $_GET["username"]; ?>";
   </script>

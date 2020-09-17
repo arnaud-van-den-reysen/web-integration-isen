@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function(){
-    console.log("Initialization");
     //boolean permettant de lancer et stopper l'enregistrement des coordonnées souris
     flag = 0;
 
