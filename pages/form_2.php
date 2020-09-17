@@ -2,7 +2,7 @@
 session_start();
 include('../id.php');
 file_put_contents('../coordonnees/coor_'. $_SESSION["username"].'.txt', $_POST['contFichier'], FILE_APPEND);
-file_put_contents("../coordonnees/Patient". $_SESSION['id_user']."F".".txt",  $_POST['contFichier2'], FILE_APPEND);
+file_put_contents("../coordonnees/Patient". $_SESSION['id_user']."F".".txt",  $_POST['contFichier2'], FILE_APPEND);//Rajout des résultats du form précedent 
     echo '<script>javascript:window.close()</script>';
  ?>
 <!DOCTYPE html>

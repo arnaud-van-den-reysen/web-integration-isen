@@ -42,6 +42,8 @@ session_start();
             </nav>
         </div>
     </header>
+
+    <!-- Le parcours est une image au dimension fixe, elle ne peut pas être responsive dans l'état actuel du code -->
     <h6 style="text-decoration: underline;">Click on the first red circle then follow the path to click on the last red circle.</h6>
 <div id="divid" style="width:899px; height:868px; background-image:url('parcours.jpg');"></div>
 </div>

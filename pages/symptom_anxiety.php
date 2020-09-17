@@ -80,7 +80,7 @@ and open the template in the editor.
     <div class="container text-center">
 
         <h3 class="my-5">Please answer the following questions</h3>
-
+    <!-- Chaque questionnaire à 5 questions, chacune avec un id-->
         <form name="form_answers" id ="form_answers" action="" method="POST">
             <div>A. Level of Anxiety
                 <input type="range" min="1" max="10" value="5" id="slider" oninput="slidervalue()">
@@ -122,7 +122,7 @@ and open the template in the editor.
            size=9999>
            <input style="visibility: hidden;" type="text" class="input1" id="contFichier2" name="contFichier2"
                   size=9999>
-                  <input type="Submit" name="submit" value="Confirm">
+                  <input type="Submit" name="submit" value="Confirm">    <!-- Ici que les réponses contenue dans contfichier2 sont transferé à la page suivante qui les sauvegardera-->
 </form>
 
 
@@ -145,7 +145,7 @@ and open the template in the editor.
             document.getElementById("envoiPHP").submit();
         }
 
-        function myFunction(maCoord) {
+        function myFunction(maCoord) {//Sauvegarde des réponses
             var node = document.createElement("LI");
             var textnode = document.createTextNode(maCoord.x+"/"+maCoord.y);
             node.appendChild(textnode);
@@ -153,6 +153,7 @@ and open the template in the editor.
             var str = maCoord.x+"/"+maCoord.y;
             listeCoor = listeCoor + str + ",";
             $(".input1").val(listeCoor);
+            //Ici toutes les réponses sont sauvegardées dans contfichier2 comme une chaine, chaque réponse séparée par une , 
             document.getElementById("contFichier2").value = "30"+","+document.getElementById("slider").value + "," + document.forms["form_answers"].elements["answer1"].value + "," + document.getElementById("slider2").value + "," + document.getElementById("slider3").value + "," + document.forms["form_answers"].elements["answer2"].value + ",";
         }
 
