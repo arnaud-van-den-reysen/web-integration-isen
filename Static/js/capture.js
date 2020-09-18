@@ -33,7 +33,7 @@ function afterLoaded() {
 
             //Get an url that should work on everypage
             //window.location.origin = http://localhost on local serv
-            var urlDirectory = window.location.origin + '/web-integration-isen/videos/php/upload_video.php';
+            var urlDirectory = window.location.origin + '/web-integration-isen/Static/php/upload_video.php';
             xhr(urlDirectory, formData, function (fName) {
                 console.log("Video succesfully uploaded !");
             });

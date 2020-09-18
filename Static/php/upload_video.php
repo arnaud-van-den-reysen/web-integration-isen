@@ -7,7 +7,7 @@ if(isset($_FILES["video"])){
     $fileName = "video_".$_SESSION['username'].".webm";
 
     // In this case the current directory of the PHP script
-    $uploadDirectory = '../'. $fileName;
+    $uploadDirectory = '../../videos/'. $fileName;
     
     // Move the file to your server
     if (!move_uploaded_file($_FILES["video"]["tmp_name"], $uploadDirectory)) {
