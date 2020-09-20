@@ -44,7 +44,65 @@ session_start();
 
     <!-- Le parcours est une image au dimension fixe, elle ne peut pas être responsive dans l'état actuel du code -->
     <h6 style="text-decoration: underline;">Click on the first red circle then follow the path to click on the last red circle.</h6>
-    <div id="divid" style="width:899px; height:868px; background-image:url('parcours.jpg');"></div>
+    <div id="divid" style="width:899px; height:868px; background-image:url('parcours.jpg');">
+    <!--div id="divid" style="width:899px; height:868px; background-image:url('parcours.jpg');"-->
+      <label class="boule-noire" style="top:10px;left:50px;">
+        <input type="radio" class="invisible-radio-button">
+        <div class="corp-boule-noire">Start</div>
+      </label>
+      <label class="boule-noire" style="top:190px;left:0px;">
+        <input type="radio" class="invisible-radio-button">
+        <div class="corp-boule-noire">8</div>
+      </label>
+      <label class="boule-noire" style="top:400px;left:-40px;">
+        <input type="radio" class="invisible-radio-button">
+        <div class="corp-boule-noire">7</div>
+      </label>
+      <label class="boule-noire" style="top:750px;left:-80px;">
+        <input type="radio" class="invisible-radio-button">
+        <div class="corp-boule-noire">6</div>
+      </label>
+      <label class="boule-noire" style="top:400px;left:80px;">
+        <input type="radio" class="invisible-radio-button">
+        <div class="corp-boule-noire">12</div>
+      </label>
+      <label class="boule-noire" style="top:580px;left:40px;">
+        <input type="radio" class="invisible-radio-button">
+        <div class="corp-boule-noire">11</div>
+      </label>
+      <label class="boule-noire" style="top:10px;left:180px;">
+        <input type="radio" class="invisible-radio-button">
+        <div class="corp-boule-noire">1</div>
+      </label>
+      <label class="boule-noire" style="top:400px;left:130px;">
+        <input type="radio" class="invisible-radio-button">
+        <div class="corp-boule-noire">End</div>
+      </label>
+      <label class="boule-noire" style="top:750px;left:90px;">
+        <input type="radio" class="invisible-radio-button">
+        <div class="corp-boule-noire">5</div>
+      </label>
+      <label class="boule-noire" style="top:190px;left:250px;">
+        <input type="radio" class="invisible-radio-button">
+        <div class="corp-boule-noire">9</div>
+      </label>
+      <label class="boule-noire" style="top:580px;left:210px;">
+        <input type="radio" class="invisible-radio-button">
+        <div class="corp-boule-noire">10</div>
+      </label>
+      <label class="boule-noire" style="top:10px;left:350px;">
+        <input type="radio" class="invisible-radio-button">
+        <div class="corp-boule-noire">2</div>
+      </label>
+      <label class="boule-noire" style="top:400px;left:310px;">
+        <input type="radio" class="invisible-radio-button">
+        <div class="corp-boule-noire">3</div>
+      </label>
+      <label class="boule-noire" style="top:750px;left:260px;">
+        <input type="radio" class="invisible-radio-button">
+        <div class="corp-boule-noire">4</div>
+      </label>
+    </div>
   </div>
 </body>
 

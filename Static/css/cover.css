@@ -164,3 +164,28 @@ img {
 .mastfoot {
     color: rgba(255, 255, 255, .5);
 }
+
+/*
+ * Mouse diag game
+ */
+.boule-noire {
+    position:relative;
+    display:inline-block;
+}
+
+.invisible-radio-button {
+    display: none;
+}
+
+.corp-boule-noire {
+    display:flex;
+    width:40px; 
+    height:40px; 
+    background-color:#000; 
+    color:#fff;
+    border-radius:50%;
+}
+
+.invisible-radio-button:checked+.corp-boule-noire {
+    background-color:#f00; 
+}
