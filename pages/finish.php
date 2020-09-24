@@ -75,7 +75,7 @@ and open the template in the editor.
 
     <footer class="mastfoot mt-auto text-center">
         <div class="inner">
-            <p>&copy; 2020 <a href="index.php">Aled</a>.  All rights reserved.</p>
+            <p>&copy; 2020 <a href="index.php">Smart-Medical-Assistant</a>.  All rights reserved.</p>
         </div>
     </footer>
 </div>
