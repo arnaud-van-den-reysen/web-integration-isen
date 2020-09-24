@@ -68,7 +68,7 @@ if (isset($_GET['logout'])) {
     <img src="./Static/images/doctor.png">
         <?php  if (isset($_SESSION['username'])) : ?> <!-- Vérification de connexion -->
             <h1 class="cover-heading">Make Your Diagnosis</h1>
-            <p class="lead">Aled is web and mobile application where you can make your own diagnosis. You can now make your own diagnosis using the button below</p>
+            <p class="lead">Smart-Medical-Assistant is web and mobile application where you can make your own diagnosis. You can now make your own diagnosis using the button below</p>
             <p class="lead">
                 <a href="presurvey/NewTest.php?username=<?php echo $_SESSION['username']; ?>" class="btn btn-lg btn-secondary make_diag_button">
                     <span>Make diagnosis</span>
